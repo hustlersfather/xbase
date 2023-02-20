@@ -783,12 +783,13 @@ a.closearb {
   <!-- Start your project here-->
 <?php eeho'
 <div class="main-home mt-5 mb-5">
+      <div class="container-fluid">
 <div class="row">
 <div class="col-md-8">
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-user-shield"></i>
-Welcome <a class="badge badge-pill badge-success">'.$usrid'</a><br>'; ?>
+Welcome <a class="badge badge-pill badge-success">'.$usrid'</a><br>; ?>
 
   <!-- End your project here-->
 
@@ -799,8 +800,7 @@ Welcome <a class="badge badge-pill badge-success">'.$usrid'</a><br>'; ?>
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-      <div class="container-fluid">
+
         © 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
       </div>
     </div>
