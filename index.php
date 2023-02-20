@@ -785,15 +785,14 @@ a.closearb {
 </div>
 </div>'; 
 ?>
-<?php echo'<div class="list-group" id="div2">
+<?php echo'<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
-<i class="fas fa-newspaper"></i>Our News<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">'; 
+<i class="fas fa-newspaper">
+</i>Our News</div>'; 
 		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
 
                 
-while($r = mysqli_fetch_assoc($qq)){	echo'
-<ul>
-<li class='mb-2'>'.stripcslashes($r['content']).'</span>
+while($r = mysqli_fetch_assoc($qq)){				echo'<ul><li class='mb-2'>'.stripcslashes($r['content']).'</span>
 	      <span>
 		<small><b>'.$r['date'].'</small>
 		</span></b>
