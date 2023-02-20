@@ -507,6 +507,66 @@ font-family: 'Raleway', sans-serif;
 <link rel="stylesheet" href="files/css/flexslider5.css" type="text/css">
 <script src="files/js/jquery.flexslider-min.js"></script>
 	
+	<style>
+#tour {
+font-family: 'Raleway', sans-serif;
+}
+#tour .flexslider {
+margin: 0 0 60px;
+background: #fff;
+border: 0px solid #fff;
+position: relative;
+zoom: 0;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+-webkit-box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0.2);
+-o-box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0.2);
+box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0.2);
+}
+#tour .flex-control-paging li a {
+width: 11px;
+height: 11px;
+display: block;
+background: #fff!important;
+border: 1px solid #3c8dbc;
+background: rgba(0, 0, 0, 0.5);
+cursor: pointer;
+text-indent: -9999px;
+-webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+-moz-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+-o-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+}
+#tour .flex-control-paging li a.flex-active {
+background: #3c8dbc!important;
+}
+#tour .modal-body {
+padding: 0px;
+}
+#tour .modal-footer {
+background: #fafafa;
+border:0px;
+}
+#tour .flex-caption {
+padding: 20px 100px 20px 100px;
+text-align: center;
+}
+#tour .flex-caption .heading{
+font-weight: 600;
+font-size: 20px;
+color: #505050;
+padding-bottom: 15px;
+}
+#tour .flex-caption .caption-content{
+font-size: 15px;
+color: #505050;
+}
+</style>
 	
 	
 <div id="mainDiv">
