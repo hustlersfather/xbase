@@ -70,35 +70,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
         </style>
 </head>
   </head>
-  <style>
-  .display  td {
-  background: var(--color-card);
-  color: var(--font-color);
-  }
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-  color: var(--font-color);
-  }
-  #banks_data_paginate .paginate_button {
-  color: var(--font-color);
-  }
-  .alert-info {
-  color: var(--color-info);
-  background-color: var(--color-backinfo);
-  border-color: var(--color-borderinfo);
-  }
-  #banks_data_filter{
-  color: var(--font-color);
-  }
-  #banks_data_length{
-  color: var(--font-color);
-  }
-  #banks_data_paginate{
-  color: var(--font-color);
-  }
-  #banks_data_info{
-  color: var(--font-color);
-  }
-  </style>
+
   <body class="them">
     <style>
     .navbar-nav .dropdown-menu
