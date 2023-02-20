@@ -72,10 +72,6 @@ table.floatThead-table {
   .dropdown:hover .dropdown-menu {
     display: block;
   }
-.navbar-nav .dropdown-menu
-    {
-      margin:0 !important
-    }
 }
 
 #mydiv {
@@ -96,6 +92,92 @@ table.floatThead-table {
     
 
 </style>
+<script type="text/javascript">
+             function ajaxinfo() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'ajaxinfo.html',
+                    timeout: 10000,
+
+                    success: function(data) {
+                        if (data != '01') {
+                            var data = JSON.parse(data);
+                            for (var prop in data) {
+                                $("#" + prop).html(data[prop]).show();
+                            }
+                        } else {
+                            window.location = "logout.html";
+                        }
+                    }
+                });
+
+            }
+            setInterval(function() {
+                ajaxinfo()
+            }, 3000);
+
+            ajaxinfo();
+
+$(document).keydown(function(event){
+    if(event.which=="17")
+        cntrlIsPressed = true;
+});
+
+$(document).keyup(function(){
+    cntrlIsPressed = false;
+});
+
+var cntrlIsPressed = false;
+
+
+function pageDiv(n,t,u,x){
+  if(cntrlIsPressed){
+    window.open(u, '_blank');
+    return false;
+  }
+        var obj = { Title: t, Url: u };
+        if ( ("/"+obj.Url) != location.pathname) {
+        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
+        	else{history.replaceState(obj, obj.Title, obj.Url);}
+
+    	}
+      document.title = obj.Title;
+    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
+    $.ajax({
+    type:       'GET',
+    url:        'divPage'+n+'.html',
+    success:    function(data)
+    {
+        $("#mainDiv").html(data).show();
+        newTableObject = document.getElementById('table');
+        sorttable.makeSortable(newTableObject);
+        $(".sticky-header").floatThead({top:60});
+        if(x==0){ajaxinfo();}
+      }});
+    if (typeof stopCheckBTC === 'function') { 
+    var a = stopCheckBTC();
+     }
+
+}
+
+$(window).on("popstate", function(e) {
+        location.replace(document.location);
+
+});
+
+
+function setTooltip(btn, message) {
+  console.log("hide-1");
+  $(btn).tooltip('hide')
+    .attr('data-original-title', message)
+    .tooltip('show');
+     console.log("show");
+}
+
+function hideTooltip(btn) {
+  setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
+}
+</script>
 	<style>
     .navbar-nav .dropdown-menu
     {
@@ -869,27 +951,16 @@ Invite Users<br>
   </footer>
   <!-- Footer -->
  <!-- Optional JavaScript; choose one of the two! -->
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="js/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-  <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="js/dt-1.10.25datatables.min.js"></script>
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <script src="files/bootstrap/3/js/bootstrap.min.js"></script>
-<script src="files/js/sorttable.js"></script>
-<script src="files/js/bootbox.min.js"></script>
-<script src="files/js/table-head.js?3334"></script>
-<script src="files/bootstrap/3/js/jquery-3.4.1.min.js"></script>
-<script src="files/js/clipboard.min.js"></script>    
-<script src="files/js/main.js"></script>
-<script src="files/js/jquery.js?1"></script>
+
 	<!-- SCRIPTS -->
-<script type="text/javascript">
-    // Notice how this gets configured before we load Font Awesome
-            window.FontAwesomeConfig = { autoReplaceSvg: false }
-  </script>
-
-
-
+<!-- Optional JavaScript; choose one of the two! -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+ <script src="js/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+ <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="files/js/jquery.js?1"></script>
+<script type="text/javascript" src="files/js/sorttable.js"></script>
+<script type="text/javascript" src="files/js/table-head.js?3334"></script>
+ <script type="text/javascript" src="js/dt-1.10.25datatables.min.js"></script>
 
 
  
