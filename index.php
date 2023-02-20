@@ -10,26 +10,22 @@ if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
 }
 $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" type="text/css" href="files/bootstrap/3/css/bootstrap.css?1" />
-<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
-<script type="text/javascript" src="files/js/jquery.js?1"></script>
-<script type="text/javascript" src="files/bootstrap/3/js/bootstrap.js?1"></script>
-<script type="text/javascript" src="files/js/sorttable.js"></script>
-<script type="text/javascript" src="files/js/table-head.js?3334"></script>
-<script type="text/javascript" src="files/js/bootbox.min.js"></script>
-<script type="text/javascript" src="files/js/clipboard.min.js"></script>
-
-<link rel="shortcut icon" href="files/img/favicon.ico" />
-<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" /> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
  <meta name="referrer" content="no-referrer" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<title>FeluxShop</title>
+  <title>XBASELEET</title>
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <!-- Bootstrap core CSS -->
+  <link href="files/bootstrap/3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
+<link rel="shortcut icon" href="files/img/favicon.ico" />
 </head>
 <style>
 #table {
@@ -297,7 +293,37 @@ if ($r1 == "1") {
 <div id="mainDiv">
 
 
-</div>
+ </div>
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+      <div class="container-fluid">
+        © 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+      </div>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- SCRIPTS -->
+  <script type="text/javascript" src="files/js/jquery.js?1"></script>
+    <!-- SCRIPTS -->
+<script type="text/javascript" src="files/js/sorttable.js"></script>
+  <!-- SCRIPTS -->
+<script type="text/javascript" src="files/js/table-head.js?3334"></script>
+  <!-- SCRIPTS -->
+<script type="text/javascript" src="files/js/bootbox.min.js"></script>
+  <!-- SCRIPTS -->
+<script type="text/javascript" src="files/js/clipboard.min.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="files/bootstrap/3/js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="files/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script> 
 </body>
 </html>
 
