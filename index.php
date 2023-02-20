@@ -449,6 +449,8 @@ if ($r1 == "1") {
   </div>
   <!-- /.container-fluid -->
 </nav>
+
+
 <style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
   padding-top: 35px;
@@ -499,6 +501,14 @@ color: green;
 font-family: 'Raleway', sans-serif;
 }
 </style>
+
+
+<body class="ajax-loader">
+<link rel="stylesheet" href="files/css/flexslider5.css" type="text/css">
+<script src="files/js/jquery.flexslider-min.js"></script>
+	
+	
+	
 <div id="mainDiv">
 
 
