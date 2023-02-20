@@ -785,27 +785,17 @@ a.closearb {
 </div>
 </div>'; 
 ?>
-<?php echo'
-<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
-<div class="card-header">
-<i class="fas fa-newspaper">
-</i>OUR NEWS</h3> 
-</div>';
-	?>
-	<?php
-	$qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
-	while($r = mysqli_fetch_assoc($qq)){				
-		echo'<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
-		<ul>
-<li class='mb-2'>
-<span class='btn btn-info btn-sm mr-2 mt-1 mb-1'>
-<b>'.stripcslashes($r['content']).'</b>
-	</span>
-	      <span>
-		<small><b>'.$r['date'].'</small>
-		</span></b>
-<br>'; }
- echo '				 </div>
+<?php echo'<div class="list-group" id="div2">
+      	<h3>
+        <i class="glyphicon glyphicon-info-sign">
+        </i>OUR NEWS</h3>'; 
+		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
+
+                
+while($r = mysqli_fetch_assoc($qq)){				echo'<a class="list-group-item"><h5 class="list-group-item-heading"><b>'.stripcslashes($r['content']).'</b></h5><h6 class="list-group-item-text">'.$r['date'].'</h6></a>'; 
+}
+ echo '
+				 </div>
 </div>
 <div class="form-group col-lg-4 ">
 	<!-- <img src="files/img/eid.jpg" style="width: 70%; height: 70%" title="Eid Mubarak"> -->
