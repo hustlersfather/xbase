@@ -10,24 +10,31 @@ if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
 }
 $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 ?>
-
-
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="alfacoins-site-verification" content="">
-<meta name="revisit-after" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script src="/cdn-cgi/apps/head/ "></script>
-<link rel="shortcut icon" href="../../favicon.ico" />
-<title>OdinShop</title><link rel="stylesheet" href="files/3/css/bootstrap.min.css">
-<script src="files/js/jquery-3.4.1.min.js"></script><script src="files/js/clipboard.min.js"></script>
-<script src="files/js/popper.min.js"></script><script src="files/bootstrap/3/js/bootstrap.min.js"></script>
-<script src="files/js/bootbox.min.js"></script>
-<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+<link href="files/bootstrap/3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="js/css/datatables-1.10.25.min.css" />
+
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />  
+<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
+<link rel="stylesheet" href="files/css/main.css" />
+<link rel="stylesheet" href="files/css/util.css" />
+<style>body{padding-top:80px}</style>
+<link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">   
+<style>
+            @import url(//fonts.googleapis.com/css?family=Roboto:400);
+            .navbar-nav .dropdown-menu
+            {
+            margin:0 !important
+            }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
@@ -35,30 +42,13 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script>
-<script async src="//www.googletagmanager.com/gtag/js?id=UA-177092549-1"></script>
-<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('set', {'$usrid': 'USER_ID'}); // Set the user ID using signed-in user_id.
-        gtag('config', 'UA-177092549-1');
-        </script>
-<link rel="stylesheet" href="files/css/main.css" />
-<link rel="stylesheet" href="files/css/util.css" />
-<style>body{padding-top:80px}</style>
-<link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">
-<script src="files/js/main.js"></script>
-<script type="text/javascript">
-            // Notice how this gets configured before we load Font Awesome
-            window.FontAwesomeConfig = { autoReplaceSvg: false }
-        </script>
+<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
+<link rel="shortcut icon" href="files/img/favicon.ico" />
+</head>
 <style>
-            @import url(//fonts.googleapis.com/css?family=Roboto:400);
-            .navbar-nav .dropdown-menu
-            {
-            margin:0 !important
-            }
 #table {
   .sortable
 }
@@ -365,186 +355,25 @@ function hideTooltip(btn) {
         })();
 
   </script>
-</head>
-<style>
-    .navbar-nav .dropdown-menu
-    {
-      margin:0 !important
-    }
-    .theme-light {
-  --color-primary: #0060df;
-  --color-secondary: #ffffff;
-   --color-secondary2: #ecf0f1;
-  --color-accent: #fd6f53;
-  --font-color: #000000;
-  --color-nav: #ffffff;
-  --color-dropdown: #ffffff;
-  --color-card: #ffffff;
-   --color-card2: #d1ecf1;
-  --color-info: #0c5460;
-  --color-backinfo: #d1ecf1;
-  --color-borderinfo: #bee5eb;
-
-}
-.theme-dark {
-  --color-primary: #17ed90;
-  --color-secondary: #353B50;
-  --color-secondary2: #353B50;
-  --color-accent: #12cdea;
-  --font-color: #ffffff;
-  --color-nav: #363947;
-  --color-dropdown: rgba(171, 205, 239, 0.3);
-  --color-card: #262A37;
-   --color-card2: #262A37;
-   --color-info: #4DD0E1;
-  --color-backinfo: #262A37;
-  --color-borderinfo: #262A37;
-}
-.them {
-
-  background: var(--color-secondary);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.them h1 {
-  color: var(--font-color);
-  font-family: sans-serif;
-}
-.card-body {
-     color: var(--font-color);
-    }
-.them button {
-  color: var(--font-color);
-  background-color: #ffffff;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 5px;
-}
-.navbar.navbar-light .navbar-toggler {
-    color: var(--font-color);
-}
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 40px;
-  width: 40px;
-  left: 0px;
-  bottom: 4px;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  box-shadow: 0 0px 15px #2020203d;
-  background: white url('https://i.ibb.co/FxzBYR9/night.png');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(24px);
-  -ms-transform: translateX(24px);
-  transform: translateX(24px);
-  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-  </style>
-<script>
-
-        function setTheme(themeName) {
-            localStorage.setItem('theme', themeName);
-            document.documentElement.className = themeName;
-        }
-
-        // function to toggle between light and dark theme
-        function toggleTheme() {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-light');
-            } else {
-                setTheme('theme-dark');
-            }
-        }
-
-        // Immediately invoked function to set the theme on initial load
-        (function () {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-dark');
-                document.getElementById('slider').checked = false;
-            } else {
-                setTheme('theme-light');
-              document.getElementById('slider').checked = true;
-            }
-        })();
-
-  </script>
-<nav class="navbar navbar-expand-xl navbar  navbar-light " style="
-                                                          position:fixed;
-                                                          background-color: var(--color-nav);
-                                                          z-index:1;
-                                                          top:0;
-                                                          left:0;
-                                                          right:0;
-                                                          line-height: 1.5;
-                                                          font-family: 'Lato', sans-serif;
-                                                          font-size: 15px;
-                                                          padding-top: 0.5rem;
-                                                          padding-right: 1rem;
-                                                          padding-bottom: 0.5rem;
-                                                          padding-left: 1rem;
-                                                        ">
-<a class="navbar-brand" href="main" style="color: var(--font-color);"><img width="40px" src="files/images/logo.png"> XBASELEET</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<i class="navbar-toggler-icon"></i></button><div class="collapse navbar-collapse order-1" id="navbarSupportedContent">
-<ul class="navbar-nav mr-auto">
+  <nav class="navbar navbar-expand-xl navbar  navbar-light " style="
+    position:fixed;
+    background-color: var(--color-nav);
+    z-index:1;
+    top:0;
+    left:0;
+    right:0;
+    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    ">
+    <a class="navbar-brand" href="index" style="color: var(--font-color);"><img width="40px" src="files/images/logo.png">XBASELEET</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="navbar-toggler-icon"></i></button><div class="collapse navbar-collapse order-1" id="navbarSupportedContent"><ul class="navbar-nav mr-auto">
+	  <li class="nav-item dropdown mr-auto">
         <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-warehouse fa-sm orange-text"></i>
           Hosts
         </a>
