@@ -462,9 +462,8 @@ if ($r1 == "1") {
 <span class="px-2"><i class="fa fa-plus"></i></span></span>
 </a>
 </li>
-
-<?php echo'<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$usrid.'<i class="fa fa-user-secret" style="color: var(--font-color);"></i></a>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-secret" style="color: var(--font-color);"></i></a>
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: var(--font-color); background-color: var(--color-nav);">
 	<a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
