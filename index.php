@@ -781,9 +781,14 @@ a.closearb {
 	
 <?php
  echo'
-<div class="form-group col-lg-7 ">
-<div class="well">
-  Hello <a class="label label-primary">'.$usrid.'</a><br>
+<div class="main-home mt-5 mb-5">
+<div class="row">
+	
+<div class="col-md-8">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-user-shield"></i>
+  welcome <a class="badge badge-pill badge-success">'.$usrid.'</a><br>
     If you have any <b>Question</b> ,<b>Problem</b>, <b>Suggestion</b> or <b>Request</b> Please feel free to <a class="label label-default " href="tickets.html"><span class="glyphicon glyphicon-pencil"></span> Open a Ticket</a><br>
     if you want to report an order , just go to <abbr title="Account - > My Orders or Click here" >My Orders  <span class="glyphicon glyphicon-shopping-cart"></span></abbr> 
     then click on <a class="label label-primary">Report #[Order Id]</a> button<br><br>
