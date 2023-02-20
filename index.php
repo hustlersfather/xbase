@@ -601,7 +601,7 @@ a.closearb {
 </div>
 </div>
 </div>
-
+my
 </div>
 </div>
 
@@ -683,8 +683,9 @@ a.closearb {
 <div class="row">
 <div class="col-md-10">
 <h5 class="card-title text-uppercase text-muted mb-0">Balance</h5>
-<span class="h2 font-weight-bold mb-0">
-<?php echo'<span id="balance">'</div>'; ?>
+<span class="h2 font-weight-bold mb-0"><b><span id="balance"></span></b>
+<span class="px-2">
+</div>
 <div class="col-md-2">
 <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
 <i class="fa fa-money-bill-alt "></i>
