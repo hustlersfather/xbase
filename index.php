@@ -15,12 +15,13 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="alfacoins-site-verification" content="5ef8c2279aa605ef8c2279aa965ef8c2279aacb_ALFAcoins">
+<meta name="alfacoins-site-verification" content="">
 <meta name="revisit-after" content="2 days">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script><link rel="shortcut icon" href="../../favicon.ico" />
 <title>XBASELEET</title>
 <link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 <script src="files/js/jquery-3.4.1.min.js"></script>
 <script src="files/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
