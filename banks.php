@@ -1,3 +1,4 @@
+
 <?php
 ob_start();
 session_start();
@@ -42,6 +43,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   }
 
 </style>
+
 <script type="text/javascript">
              function ajaxinfo() {
                 $.ajax({
@@ -87,10 +89,10 @@ function pageDiv(n,t,u,x){
   }
         var obj = { Title: t, Url: u };
         if ( ("/"+obj.Url) != location.pathname) {
-        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
-        	else{history.replaceState(obj, obj.Title, obj.Url);}
+          if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
+          else{history.replaceState(obj, obj.Title, obj.Url);}
 
-    	}
+      }
       document.title = obj.Title;
     $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
@@ -118,7 +120,6 @@ $(window).on("popstate", function(e) {
 
 $(window).on('load', function() {
 $('.dropdown').hover(function(){ $('.dropdown-toggle', this).trigger('click'); });
-   pageDiv(8,'Banks - XBASELEET','banks',1);
    var clipboard = new Clipboard('.copyit');
     clipboard.on('success', function(e) {
       setTooltip(e.trigger, 'Copied!');
@@ -142,17 +143,18 @@ function hideTooltip(btn) {
 }
 </script>
 
+
+
   <div class="alert alert-info text-left" role="alert" style="margin: 15px;">
     <ul>
       <li>For Any problem for account after buy just open report and seller will fix it or replace.</li>
-      <li>There is <b> 0 </b> Bank Logs Available.</li>
+      <li>There is <b> 0 </b> Accounts Available.</li>
     </ul>
   </div>
- </ul>
- <input type=hidden id="cat" name="cat" value="6" />
+  <input type=hidden id="cat" name="cat" value="6" />
   <div class="row m-3 pt-1" style="color: var(--font-color);">
     <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
-      <label for="infos" style="margin-bottom: 10px; margin-top: 5px">banks Name :</label>
+      <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Website Name :</label>
       <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
         <option value="">All</option>
       </select>
@@ -170,39 +172,20 @@ function hideTooltip(btn) {
     <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
       <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
       <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-        <option value="">All</option>
+       <?php
+$query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `banks` WHERE `sold` = '0' ORDER BY resseller ASC");
+  while($row = mysqli_fetch_assoc($query)){
+     $qer = mysqli_query($dbcon, "SELECT DISTINCT(`id`) FROM resseller WHERE username='".$row['resseller']."' ORDER BY id ASC")or die(mysql_error());
+       while($rpw = mysqli_fetch_assoc($qer))
+       $SellerNick = "seller".$rpw["id"]."";
+  echo ' echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
+  }
       </select>
     </div>
   </div>
   <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
     <div class="col-sm-12 table-responsive">
       <table id="banks_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-        <thead>
-          <tr>
-  
-<?php
-$query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `banks` WHERE `sold` = '0' ORDER BY country ASC");
-	while($row = mysqli_fetch_assoc($query)){
-	echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
-	}
-?>
-</select></td><td><input class='filterinput form-control input-sm' name="bank_sitename" size='3'></td><td><select class='filterselect form-control input-sm' name="bank_seller"><option value="">ALL</option>
-<?php
-$query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `banks` WHERE `sold` = '0' ORDER BY resseller ASC");
-	while($row = mysqli_fetch_assoc($query)){
-		 $qer = mysqli_query($dbcon, "SELECT DISTINCT(`id`) FROM resseller WHERE username='".$row['resseller']."' ORDER BY id ASC")or die(mysql_error());
-		   while($rpw = mysqli_fetch_assoc($qer))
-			 $SellerNick = "seller".$rpw["id"]."";
-	echo '<option value="'.$SellerNick.'">'.$SellerNick.'</option>';
-	}
-?>
-</select></td><td><button id='filterbutton'class="btn btn-primary btn-sm" disabled>Filter <span class="glyphicon glyphicon-filter"></span></button></td></tr></tbody></table></div>
-</div>
-
-
-<div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
-<div class="col-sm-12 table-responsive">
-<table id="account_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
 <thead>
 <tr>
       <th scope="col" >Country</th>
@@ -217,35 +200,36 @@ $query = mysqli_query($dbcon, "SELECT DISTINCT(`resseller`) FROM `banks` WHERE `
 </thead>
   <tbody>
 
- <?php
+    <?php
 include("cr.php");
 $q = mysqli_query($dbcon, "SELECT * FROM banks WHERE sold='0' ORDER BY RAND()")or die(mysqli_error());
  while($row = mysqli_fetch_assoc($q)){
-	 
-	 	 $countryfullname = $row['country'];
-	  $code = array_search("$countryfullname", $countrycodes);
-	 $countrycode = strtolower($code);
-	    $qer = mysqli_query($dbcon, "SELECT * FROM resseller WHERE username='".$row['resseller']."'")or die(mysql_error());
-		   while($rpw = mysqli_fetch_assoc($qer))
-			 $SellerNick = "seller".$rpw["id"]."";
+   
+     $countryfullname = $row['country'];
+    $code = array_search("$countryfullname", $countrycodes);
+   $countrycode = strtolower($code);
+      $qer = mysqli_query($dbcon, "SELECT * FROM resseller WHERE username='".$row['resseller']."'")or die(mysql_error());
+       while($rpw = mysqli_fetch_assoc($qer))
+       $SellerNick = "seller".$rpw["id"]."";
      echo "
  <tr>     
     <td id='bank_country'><i class='flag-icon flag-icon-$countrycode'></i>&nbsp;".htmlspecialchars($row['country'])." </td>
     <td id='bank_sitename'> ".htmlspecialchars($row['bankname'])." </td> 
     <td> ".htmlspecialchars($row['balance'])." </td> 
-	<td> ".htmlspecialchars($row['infos'])." </td>
+  <td> ".htmlspecialchars($row['infos'])." </td>
     <td id='bank_seller'> ".htmlspecialchars($SellerNick)."</td>
     <td> ".htmlspecialchars($row['price'])."</td>
-	    <td> ".$row['date']."</td>";
+      <td> ".$row['date']."</td>";
     echo '
     <td>
-	<span id="bank'.$row['id'].'" title="buy" type="bank"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
+  <span id="bank'.$row['id'].'" title="buy" type="bank"><a onclick="javascript:buythistool('.$row['id'].')" class="btn btn-primary btn-xs"><font color=white>Buy</font></a></span><center>
     </td>
             </tr>
      ';
  }
 
  ?>
+
 <script type="text/javascript">
 $('#filterbutton').click(function () {$("#table tbody tr").each(function() {var ck1 = $.trim( $(this).find("#bank_country").text().toLowerCase() );var ck2 = $.trim( $(this).find("#bank_sitename").text().toLowerCase() );var ck3 = $.trim( $(this).find("#bank_seller").text().toLowerCase() ); var val1 = $.trim( $('select[name="bank_country"]').val().toLowerCase() );var val2 = $.trim( $('input[name="bank_sitename"]').val().toLowerCase() );var val3 = $.trim( $('select[name="bank_seller"]').val().toLowerCase() ); if((ck1 != val1 && val1 != '' ) || ck2.indexOf(val2)==-1 || (ck3 != val3 && val3 != '' )){ $(this).hide();  }else{ $(this).show(); } });$('#filterbutton').prop('disabled', true);});$('.filterselect').change(function () {$('#filterbutton').prop('disabled', false);});$('.filterinput').keyup(function () {$('#filterbutton').prop('disabled', false);});
 function buythistool(id){
@@ -257,7 +241,7 @@ function buythistool(id){
      dataType:"text",
      success:function(data){
          if(data.match(/<button/)){
-		 $("#bank"+id).html(data).show();
+     $("#bank"+id).html(data).show();
          }else{
             bootbox.alert('<center><img src="files/img/balance.png"><h2><b>No enough balance !</b></h2><h4>Please refill your balance <a class="btn btn-primary btn-xs"  href="addBalance.html" onclick="window.open(this.href);return false;" >Add Balance <span class="glyphicon glyphicon-plus"></span></a></h4></center>')
          }
@@ -281,8 +265,57 @@ function openitem(order){
 }
 
 </script>
-
-</div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-notify modal-success" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="heading" id="myModalHeader"></p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modelbody">
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalConfirmBuy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm modal-notify modal-info" role="document">
+      <div class="modal-content text-center">
+        <div class="modal-header d-flex justify-content-center">
+          <p class="heading">Are you sure?</p>
+        </div>
+        <div class="modal-body">
+          <i class='fas fa-shopping-cart fa-4x animated rotateIn'></i>
+        </div>
+        <div class="modal-footer flex-center">
+          <a onClick='confirmbye()' class="btn btn-outline-info waves-effect" data-dismiss="modal">Yes</a>
+          <a type="button" class="btn btn-info" data-dismiss="modal">No</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade top" id="modalCoupon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog modal-frame modal-top modal-notify modal-danger" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
+            <img src="layout/images/balance.png">
+            <span class="pt-3 mx-4" style="font-size: 14 px"><b>No enough balance !</b> Please refill your balance</span>
+            <a type="button" href="addBalance" onclick="window.open(this.href);return false;" class="btn btn-danger">Add Balance
+              <i class="fas fa-book ml-1 white-text"></i>
+            </a>
+            <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
 </body>
 </html>
-
