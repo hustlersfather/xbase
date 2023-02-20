@@ -802,8 +802,10 @@ Our Domains are <p><span style="color: #ff0000;"><strong>xbaseleet.io</strong> |
 <a href="https://xbaseleet.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
 <br>
 </div>
-    <div class="list-group" id="div2">
-      	<h3><i class="glyphicon glyphicon-info-sign"></i> OUR NEWS</h3>'; 
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-newspaper"></i>OUR NEWS</div>'; 
 		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
 
                 
