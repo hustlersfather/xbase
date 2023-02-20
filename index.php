@@ -358,12 +358,16 @@ function hideTooltip(btn) {
     <a class="navbar-brand" href="main" style="color: var(--font-color);"><img width="40px" src="assets/images/logo.png">XBASELEET</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="navbar-toggler-icon"></i></button><div class="collapse navbar-collapse order-1" id="navbarSupportedContent"><ul class="navbar-nav mr-auto">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hosts <span class="glyphicon glyphicon-chevron-down" id="alhosts"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="rdp.html" onclick="pageDiv(1,'RDP - FeluxShop','rdp.html',0); return false;">RDPs <span class="label label-primary label-as-badge" id="rdp"></span></a></li>
-            <li><a href="cPanel.html" onclick="pageDiv(2,'cPanel - FeluxShop','cPanel.html',0); return false;">cPanels <span class="label label-primary label-as-badge" id="cpanel"></span></a></li>
-            <li><a href="shell.html" onclick="pageDiv(3,'Shell - FeluxShop','shell.html',0); return false;">Shells <span class="label label-primary label-as-badge" id="shell"></span></a></li>  
-          </ul>
+	  <li class="nav-item dropdown mr-auto">
+        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-warehouse fa-sm orange-text"></i>
+          Hosts
+        </a>
+        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="rdp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-desktop fa-fw"></i> RDPs <span class="badge badge-primary"><span id="rdp"></span></span></a>
+          <a class="dropdown-item" href="cPanel" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-tools fa-fw"></i> cPanels <span class="badge badge-primary"><span id="cpanels"></span></span></a>
+          <a class="dropdown-item" href="shell" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-file-code fa-fw"></i> Shells <span class="badge badge-primary"><span id="shell"></span></span></a>
+        </div>
+      </li>
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Send <span class="glyphicon glyphicon-chevron-down" id="mail"></span></a>
           <ul class="dropdown-menu" role="menu">
