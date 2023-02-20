@@ -567,7 +567,65 @@ font-size: 15px;
 color: #505050;
 }
 </style>
-	
+	<div class="modal fade top" id="mod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+  <div class="modal-dialog modal-frame modal-top modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="bodyTicket" class="row d-flex justify-content-center align-items-center">
+          <span class="pt-3 mx-4" style="font-size: 14 px"><b>You have new replay ticket</span>
+          <a type="button" href="tickets" class="btn btn-success">Show tickets
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade top" id="modalrep" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+  <div class="modal-dialog modal-frame modal-top modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="bodyreport" class="row d-flex justify-content-center align-items-center">
+          <span class="pt-3 mx-4" style="font-size: 14 px"><b>You have new replay report</span>
+          <a type="button" href="reports" class="btn btn-danger">Show reports
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade top" id="modalreps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+  <div class="modal-dialog modal-frame modal-top modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="bodyreport" class="row d-flex justify-content-center align-items-center">
+          <span class="pt-3 mx-4" style="font-size: 14 px"><b>You have new report</span>
+          <a type="button" href="./seller/reports" class="btn btn-danger">Show reports</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade top" id="modalrepss" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+  <div class="modal-dialog modal-frame modal-top modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="bodyreport" class="row d-flex justify-content-center align-items-center">
+          <span class="pt-3 mx-4" style="font-size: 14 px"><b>You have new replay report</span>
+          <a type="button" href="./seller/reports" class="btn btn-danger">Show reports
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-row-reverse mt-0" style="z-index: 999999;position: absolute; right: 0; ">
+  <div class="p-2"><label id="switch" class="switch">
+    <input type="checkbox" onchange="toggleTheme()" id="slider">
+    <span class="slider round"></span>
+  </label></div>
+</div>
+<script defer src="files/js/jquery.flexslider.js"></script>
+
 	
 <div id="mainDiv">
 
