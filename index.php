@@ -781,6 +781,70 @@ a.closearb {
 </div>
 	
   <!-- Start your project here-->
+	
+<div class="main-home mt-5 mb-5">
+<div class="row">
+<div class="col-md-8">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-user-shield"></i>
+Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<br>
+If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
+<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+<br>
+if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
+<br>
+Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>odin.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+<br>
+<a href="https://odinshop.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<br>
+</div>
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-users"></i>
+Invite Users<br>
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="row">
+<div class="col-lg-5 col-md-6 col-sm-12">
+<div class="input-group mb-3" style="align-items: center;">
+<input type="text" class="form-control form-control-lg" id="code_user" value="https://odinshop.io/?referral=18229" disabled>
+<div class="input-group-append">
+<button class="btn btn-outline-secondary copydiv" data-clipboard-text="https://odinshop.io/?referral=18229" type="button">COPY</button>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
+<p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Bonus :- </p>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
+<p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Referrals :- 0</p>
+</div>
+</div>
+</div>
+</div>
+	
+	
+	
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-newspaper"></i>
+Our News
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<ul>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b></span><span><small><b>2022/08/24 06:56:08</small></span></b>
+<br>We are currently working to improve the checkers in all sections ,, stay tuned good things are coming.
+<br>
+
+</li> </ul>
+</div>
+</div>
+</div>
   <!-- End your project here-->
 
 </div>
