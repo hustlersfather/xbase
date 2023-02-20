@@ -781,26 +781,42 @@ a.closearb {
 </div>
 	
   <!-- Start your project here-->
-<?php eeho'
+	
 <div class="main-home mt-5 mb-5">
-      <div class="container-fluid">
 <div class="row">
 <div class="col-md-8">
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-user-shield"></i>
-Welcome <a class="badge badge-pill badge-success">'.$usrid'</a><br>; ?>
-
-  <!-- End your project here-->
-
+Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
+ <!-- End your project here-->
 </div>
+ 	
+<!-- Start your project here-->
+	or: var(--color-card);">
+<br>
+If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
+<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+<br>
+if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
+<br>
+Our Domains are <p><span style="color: #ff0000;"><strong>xbaseleet.io</strong> || <strong>xbaseleet.pw</strong> || <strong>xbaseleet.se</strong> || <strong>xbaseleet.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+<br>
+<a href="https://xbaseleet.xyz/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<br>
+</div>
+	<div>
+	 <!-- End your project here-->
+
+	</div>
 
  </div>
     </div>
     <!-- Footer Links -->
 
     <!-- Copyright -->
-
+    <div class="footer-copyright text-center py-3">
+      <div class="container-fluid">
         © 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
       </div>
     </div>
