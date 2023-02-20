@@ -41,6 +41,6 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 </div>
 </body>
 <?php
-include "includes/footer.php";
+include "includes/footer.php";  ?>
 </html>
 
