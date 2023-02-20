@@ -43,7 +43,7 @@
             <input type="text" name="user" placeholder="Username">
             <input type="password" name="pass" placeholder="Password">
             <button type="submit" id="divButton">Login</button> 
-            <button type="button" class="register" onclick="window.location.href = 'signup.html'">Registrer</button>
+            <button type="button" class="register" onclick="window.location.href = 'signup'">signup</button>
             </form>
 
         </div>
