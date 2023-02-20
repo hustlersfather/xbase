@@ -790,14 +790,14 @@ a.closearb {
 	
 	
 
-<?php echo'
 <div class="main-home mt-5 mb-5">
 <div class="row">
 	
 <div class="col-md-8">
+
+<?php echo'
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
-<div class="card-header">
-<i class="fas fa-user-shield"></i>
+<div class="card-header"><i class="fas fa-user-shield"></i>
 Welcome <a class="badge badge-pill badge-success">'.$usrid.'</a><br>
 </div>
 <div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
