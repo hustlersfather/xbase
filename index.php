@@ -832,12 +832,14 @@ Invite Users<br>
 	
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
-<i class="fas fa-newspaper"></i>
-Our News
+<i class="fas fa-newspaper"></i>Our News
 </div>
+	
+	
 <div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
 <ul>
-<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b></span><span><small><b>2022/08/24 06:56:08</small></span></b>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b>
+</span><span><small><b>2022/08/24 06:56:08</small></span></b>
 <br>We are currently working to improve the checkers in all sections ,, stay tuned good things are coming.
 <br>
 
@@ -877,7 +879,11 @@ Our News
   <!-- JQuery -->
   <script type="text/javascript" src="files/bootstrap/3/js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="files/js/popper.min.js"></script>
+<script type="text/javascript" src="files/js/popper.min.js"></script>
+	  <!-- Bootstrap tooltips -->
+<script type="text/javascript" src="files/js/main.js"></script>
+  <!-- Bootstrap tooltips -->
+
  
 </body>
 </html>
