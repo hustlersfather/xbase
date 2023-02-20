@@ -789,26 +789,39 @@ a.closearb {
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-newspaper">
-</i>OUR NEWS</h3>'; 
-</div>
-<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
-<ul><li class='mb-2'>
-		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
+</i>OUR NEWS</h3> 
+</div>';
+	?>
+	<?php
+	$qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
 	while($r = mysqli_fetch_assoc($qq)){				
-		echo'<a class="list-group-item">
-		<h5 class="list-group-item-heading">
-		<b>'.stripcslashes($r['content']).'</b>
-		</h5>
-		<h6 class="list-group-item-text">'.$r['date'].'</h6></a>'; }
- echo '
-				 </div>
+		echo'<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+		<ul>
+<li class='mb-2'>
+<span class='btn btn-info btn-sm mr-2 mt-1 mb-1'>
+<b>'.stripcslashes($r['content']).'</b>
+	</span>
+	      <span>
+		<small><b>'.$r['date'].'</small>
+		</span></b>
+<br>'; }
+ echo '				 </div>
 </div>
 <div class="form-group col-lg-4 ">
 	<!-- <img src="files/img/eid.jpg" style="width: 70%; height: 70%" title="Eid Mubarak"> -->
 <iframe src="static.html" style="border:none;" width="400" height="270" scrolling="no">Browser not compatible.</iframe>
     ';
 	?>
-<?php
+	<div class="well well-sm">    
+                  <h4><b>Our Support team is here !</b></h4><a class="btn btn-default btn-sm" onclick="pageDiv(9,'Tickets - FeluxShop','tickets.html#open',0); return false;" href="tickets.html#open"><span class="glyphicon glyphicon-pencil"></span> Open a Ticket</a>
+                  <h5><b>Interested in becoming a seller at  Olux Shop ?</b></h5><a class="btn btn-primary btn-xs" href="seller.html" onclick="pageDiv(24,'Become Seller  - FeluxShop','seller.html',0); return false;">Learn more</a>
+                  <h5><b>Available Payment Methods </b></h5>
+
+                  <img src="files/img/pmlogo2.png" height="48" width="49" title="PerfectMoney" onclick="pageDiv(11,'Add Balance - FeluxShop','addBalance.html#perfectmoney',0); return false;" href="addBalance.html#perfectmoney" onmouseover="this.style.cursor='pointer'">
+                  <img src="files/img/btclogo.png" height="48" width="49" title="Bitcoin" onclick="pageDiv(11,'Add Balance - FeluxShop','addBalance.html#bitcoin',0); return false;" href="addBalance.html#bitcoin" onmouseover="this.style.cursor='pointer'">
+                 
+      </div>
+	<?php
 	echo '
                  
       </div>
