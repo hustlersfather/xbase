@@ -21,7 +21,10 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   <title>XBASELEET</title>
   <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
-<!-- Bootstrap core CSS -->
+ <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">
+  <!-- Material Design Bootstrap -->
+	<!-- Bootstrap core CSS -->
 <link href="files/css/main.css" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
 <link href="files/css/util.css" rel="stylesheet">
@@ -462,25 +465,23 @@ if ($r1 == "1") {
 <span class="px-2"><i class="fa fa-plus"></i></span></span>
 </a>
 </li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-secret" style="color: var(--font-color);"></i></a>
-</a>
+
+
+<?php echo'<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$usrid.'<i class="fa fa-user-secret" style="color: var(--font-color);">
+</i></a>'; ?>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: var(--font-color); background-color: var(--color-nav);">
 	<a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
 <a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
 <a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
       <a class="dropdown-item" href="logout" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
-		  </div>         
-		</ul>
-        </li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
+</div>
+</li>
+
+</ul>
+
+</div>
 </nav>
-
-
 <style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
   padding-top: 35px;
