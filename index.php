@@ -45,6 +45,23 @@ table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_no
     content: " \25BE" 
 }
 
+.label-as-badge {
+    border-radius: 0.5em;
+}
+
+body {
+    padding-top:50px;
+}
+table.floatThead-table {
+    border-top: none;
+    border-bottom: none;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
 
 #mydiv {
   height: 400px;
@@ -59,6 +76,10 @@ table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_no
   margin: auto; /* presto! */
 
 }
+
+   
+    
+
 </style>
 	<style>
     .navbar-nav .dropdown-menu
