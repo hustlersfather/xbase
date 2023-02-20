@@ -148,14 +148,38 @@ function hideTooltip(btn) {
       <li>There is <b> 0 </b> Bank Logs Available.</li>
     </ul>
   </div>
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#filter" data-toggle="tab">Filter</a></li>
-</ul>
-<div id="myTabContent" class="tab-content" >
-  <div class="tab-pane active in" id="filter"><table class="table"><thead><tr><th>Country</th>
-<th>Site Name</th>
-<th>Seller</th>
-<th></th></tr></thead><tbody><tr><td><select class='filterselect form-control input-sm' name="bank_country"><option value="">ALL</option>
+ </ul>
+ <input type=hidden id="cat" name="cat" value="6" />
+  <div class="row m-3 pt-1" style="color: var(--font-color);">
+    <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+      <label for="infos" style="margin-bottom: 10px; margin-top: 5px">banks Name :</label>
+      <select name="sitename" id="sitename" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+        <option value="">All</option>
+      </select>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+      <label for="infos" style="margin-bottom: 10px; margin-top: 5px">Details:</label>
+      <input type="search" class="form-control" id="infos" style="color: var(--font-color); background-color: var(--color-card);">
+    </div>
+    <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+      <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
+      <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+        <option value="">All Countries</option>
+      </select>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
+      <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
+      <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
+        <option value="">All</option>
+      </select>
+    </div>
+  </div>
+  <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
+    <div class="col-sm-12 table-responsive">
+      <table id="banks_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
+        <thead>
+          <tr>
+  
 <?php
 $query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `banks` WHERE `sold` = '0' ORDER BY country ASC");
 	while($row = mysqli_fetch_assoc($query)){
