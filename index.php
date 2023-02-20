@@ -482,6 +482,7 @@ if ($r1 == "1") {
 
 </div>
 </nav>
+		  <div id="mainDiv">
 <style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
 	    padding-top: 35px;
@@ -779,7 +780,6 @@ a.closearb {
 </div>
 </div>
 </div>
-<div id="mainDiv">
 
 
  </div>
