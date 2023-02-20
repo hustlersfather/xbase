@@ -802,7 +802,11 @@ Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> ||
 <a href="https://odinshop.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
 <br>
 </div>
-</div>
+</div>'; 
+		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
+
+                
+while($r = mysqli_fetch_assoc($qq)){				echo'
 	<?php
 	echo '
                  
