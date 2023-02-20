@@ -21,16 +21,19 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   <title>XBASELEET</title>
   <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
- <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">
-  <!-- Material Design Bootstrap -->
-	<!-- Bootstrap core CSS -->
-<link href="files/css/main.css" rel="stylesheet">
-	<!-- Bootstrap core CSS -->
-<link href="files/css/util.css" rel="stylesheet">
-<!-- Bootstrap core CSS -->
-	<link href="files/bootstrap/3/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
+<link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
+<link rel="stylesheet" href="files/css/main.css" />
+<link rel="stylesheet" href="files/css/util.css" />
+<style>body{padding-top:80px}</style>
+<link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">   
+<style>
+            @import url(//fonts.googleapis.com/css?family=Roboto:400);
+            .navbar-nav .dropdown-menu
+            {
+            margin:0 !important
+            }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
@@ -851,8 +854,8 @@ Invite Users<br>
 
 </div>
 
- </div>
-    </div>
+
+  </div>
     <!-- Footer Links -->
 
     <!-- Copyright -->
@@ -867,22 +870,23 @@ Invite Users<br>
   <!-- Footer -->
 
   <!-- SCRIPTS -->
-  <script type="text/javascript" src="files/js/jquery.js?1"></script>
-    <!-- SCRIPTS -->
-<script type="text/javascript" src="files/js/sorttable.js"></script>
-  <!-- SCRIPTS -->
-<script type="text/javascript" src="files/js/table-head.js?3334"></script>
-  <!-- SCRIPTS -->
-<script type="text/javascript" src="files/js/bootbox.min.js"></script>
-  <!-- SCRIPTS -->
-<script type="text/javascript" src="files/js/clipboard.min.js"></script>
-  <!-- JQuery -->
-  <script type="text/javascript" src="files/bootstrap/3/js/jquery-3.4.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="files/js/popper.min.js"></script>
-	  <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="files/js/main.js"></script>
-  <!-- Bootstrap tooltips -->
+<script src="files/bootstrap/3/js/bootstrap.min.js"></script>
+<script src="files/js/sorttable.js"></script>
+<script src="files/js/bootbox.min.js"></script>
+<script src="files/js/table-head.js?3334"></script>
+<script src="files/bootstrap/3/js/jquery-3.4.1.min.js"></script>
+<script src="files/js/clipboard.min.js"></script>    
+<script src="files/js/main.js"></script>
+<script src="files/js/jquery.js?1"></script>
+
+<script type="text/javascript">
+    // Notice how this gets configured before we load Font Awesome
+            window.FontAwesomeConfig = { autoReplaceSvg: false }
+  </script>
+
+
+
+
 
  
 </body>
