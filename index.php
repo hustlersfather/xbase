@@ -15,12 +15,12 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
- <meta name="referrer" content="no-referrer" />
-  <title>XBASELEET</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+  <link href="css/bootstrap5.0.1.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="js/css/datatables-1.10.25.min.css" />
   <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />  
 <link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="files/css/flags.css" />
 <link rel="stylesheet" href="files/css/main.css" />
@@ -868,9 +868,13 @@ Invite Users<br>
 
   </footer>
   <!-- Footer -->
-
-  <!-- SCRIPTS -->
-<script src="files/bootstrap/3/js/bootstrap.min.js"></script>
+ <!-- Optional JavaScript; choose one of the two! -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="js/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/dt-1.10.25datatables.min.js"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <script src="files/bootstrap/3/js/bootstrap.min.js"></script>
 <script src="files/js/sorttable.js"></script>
 <script src="files/js/bootbox.min.js"></script>
 <script src="files/js/table-head.js?3334"></script>
@@ -878,7 +882,7 @@ Invite Users<br>
 <script src="files/js/clipboard.min.js"></script>    
 <script src="files/js/main.js"></script>
 <script src="files/js/jquery.js?1"></script>
-
+	<!-- SCRIPTS -->
 <script type="text/javascript">
     // Notice how this gets configured before we load Font Awesome
             window.FontAwesomeConfig = { autoReplaceSvg: false }
