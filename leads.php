@@ -102,36 +102,71 @@ a.closearb {
 	
 <label for="Country" style="margin-bottom: 10px; margin-top: 5px">Country :</label>
 <select name="country" id="country" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All Countries</option>
+
+	<option value="">All Countries</option>
 </select>
 </div>
 <div class="col-xs-6 col-sm-4 col-lg-2" style="display:inline-block">
 <label for="seller" style="margin-bottom: 10px; margin-top: 5px">Seller :</label>
 <select name="seller" id="seller" class="form-control" style="color: var(--font-color); background-color: var(--color-card);">
-<option value="">All</option>
-</select>
+
+	<option value="">All</option>
+
+	</select>
 </div>
 </div>
 <div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
 <div class="col-sm-12 table-responsive">
 <table id="table" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-<thead>
-<tr>
-<th data-priority="1"></th>
-<th class="all">ID</th>
-<th data-priority="3">Country</th>
-<th data-priority="6">Description</th>
-<th data-priority="7">Email N</th>
-<th data-priority="8">Seller</th>
-<th data-priority="2">Proof</th>
-<th data-priority="9">Price</th>
-<th data-priority="10">Added on </th>
-<th class="all">Buy</th>
-</tr>
-</thead>
-</table>
-</div>
-</div>
+<table id="example" class="table table-striped mt-4" style="100%">
+                            <thead>
+                              <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Username</th>
+                                  <th scope="col">Email</th>
+                                  <th scope="col">Password</th>
+                                  <th scope="col">Balance</th>
+                                  <th scope="col">Edit</th>
+                                  <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                          <?php
+				    
+				    
+				    
+				   ?>
+                                  <tr>
+                                    <td> <?php echo $row['id']; ?> </td>
+                                    <td> <?php echo $row['username']; ?> </td>
+                                    <td> <?php echo $row['email']; ?> </td>
+                                    <td> <?php echo $row['password']; ?> </td>
+                                    <td> <?php echo $row['balance']; ?> </td>
+                                    <td> </td> 
+                                    <td>
+                                        <form action="../authentication/auth-controller.php" method="post">
+                                        <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                            <button class="btn btn-danger" name="delete_btn">
+                                            Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                  </tr>
+                                  <?php
+
+                                  }
+                                }
+                                else{
+                                  echo "NO RECORD FOUND";
+                                }
+                              ?>
+                            </tbody>
+                          </table>
+                  </div>
+              </div>
+            </div>
+                <!--post Table ends-->
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-notify modal-success" role="document">
 <div class="modal-content">
