@@ -24,10 +24,19 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
   <link href="files/bootstrap/3/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script> 
+<script src="js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" type="text/css" href="files/css/flags.css" />
 <link rel="shortcut icon" href="files/img/favicon.ico" />
 </head>
-	
 <style>
 #table {
   .sortable
@@ -36,23 +45,6 @@ table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_no
     content: " \25BE" 
 }
 
-.label-as-badge {
-    border-radius: 0.5em;
-}
-
-body {
-    padding-top:50px;
-}
-table.floatThead-table {
-    border-top: none;
-    border-bottom: none;
-    background-color: #fff;
-}
-@media (min-width: 768px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-}
 
 #mydiv {
   height: 400px;
@@ -67,24 +59,6 @@ table.floatThead-table {
   margin: auto; /* presto! */
 
 }
-.label-primary {
-    background-color: #910606;
-}
-.btn-primary {
-    color: #ffffff;
-    background-color: #910606;
-    border-color: #910606;
-}
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    line-height: 1.1;
-    color: #910606;
-}
-
-   
-    
-
 </style>
 	<style>
     .navbar-nav .dropdown-menu
@@ -486,8 +460,7 @@ if ($r1 == "1") {
   <script type="text/javascript" src="files/bootstrap/3/js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="files/js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script> 
+ 
 </body>
 </html>
 
