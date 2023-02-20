@@ -690,9 +690,9 @@ a.closearb {
 <div class="header">
 <div class="container-fluid">
 <div class="row">
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="layout/images/shells.gif"></a></div>
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="layout/images/smtps.gif"></a></div>
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="layout/images/accs.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="files/images/shells.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="files/images/smtps.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="files/images/accs.gif"></a></div>
 </div><br>
 <div class="header-body">
 
@@ -779,20 +779,9 @@ a.closearb {
 </div>
 </div>
 </div>
-	
-<!-- Start your project here-->
 <div id="mainDiv">
-	<div class="main-home mt-5 mb-5">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 
-					<div class="card-header">
-						<?php echo'<i class="fas fa-user-shield">
-						</i>
-						Welcome 
-						<a class="badge badge-pill badge-success">'.$usrid.'</a>
-						<br>
+
  </div>
     </div>
     <!-- Footer Links -->
