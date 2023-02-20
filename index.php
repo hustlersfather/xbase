@@ -789,10 +789,18 @@ a.closearb {
 <div class="card-header">
 <i class="fas fa-user-shield"></i>
   welcome <a class="badge badge-pill badge-success">'.$usrid.'</a><br>
-    If you have any <b>Question</b> ,<b>Problem</b>, <b>Suggestion</b> or <b>Request</b> Please feel free to <a class="label label-default " href="tickets.html"><span class="glyphicon glyphicon-pencil"></span> Open a Ticket</a><br>
-    if you want to report an order , just go to <abbr title="Account - > My Orders or Click here" >My Orders  <span class="glyphicon glyphicon-shopping-cart"></span></abbr> 
-    then click on <a class="label label-primary">Report #[Order Id]</a> button<br><br>
-    Our Domains are <b>Felux.shop</b>- Please Save them!
+  </div>
+   <div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<br>
+If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
+<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+<br>
+if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
+<br>
+Our Domains are <p><span style="color: #ff0000;"><strong>xbaseleet.io</strong> || <strong>xbaseleet.pw</strong> || <strong>xbaseleet.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+<br>
+<a href="https://xbaseleet.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<br>
 </div>
     <div class="list-group" id="div2">
       	<h3><i class="glyphicon glyphicon-info-sign"></i> OUR NEWS</h3>'; 
