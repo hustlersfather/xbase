@@ -779,7 +779,34 @@ a.closearb {
 <br><a href="https://xbaseleet.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
 <br>
 </div>
+</div>
+</div>
+</div>
+</div>
 </div>'; 
 ?>
-	
+<?php echo'
+ <div class="list-group" id="div2">
+      	<h3><i class="glyphicon glyphicon-info-sign"></i> News</h3>'; 
+		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
+	while($r = mysqli_fetch_assoc($qq)){				
+		echo'<a class="list-group-item">
+		<h5 class="list-group-item-heading">
+		<b>'.stripcslashes($r['content']).'</b>
+		</h5>
+		<h6 class="list-group-item-text">'.$r['date'].'</h6></a>'; }
+ echo '
+				 </div>
+</div>
+<div class="form-group col-lg-4 ">
+	<!-- <img src="files/img/eid.jpg" style="width: 70%; height: 70%" title="Eid Mubarak"> -->
+<iframe src="static.html" style="border:none;" width="400" height="270" scrolling="no">Browser not compatible.</iframe>
+    ';
+	?>
+<?php
+	echo '
+                 
+      </div>
+  </div>
+'; ?>
 <!----------------start--------------------------->
