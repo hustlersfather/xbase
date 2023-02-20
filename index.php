@@ -1,5 +1,15 @@
+<?php
+ob_start();
+session_start();
+date_default_timezone_set('UTC');
+include "includes/config.php";
 
-
+if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
+    header("location: login");
+    exit();
+}
+$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +21,11 @@
 <script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script><link rel="shortcut icon" href="../../favicon.ico" />
 <title>XBASELEET</title>
 <link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
-<script src="layout/js/jquery-3.4.1.min.js"></script>
+<script src="files/js/jquery-3.4.1.min.js"></script>
 <script src="files/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="files/bootstrap/3/js/bootstrap.min.js"></script>
-<script src="layout/js/bootbox.min.js"></script>
+<script src="files/js/bootbox.min.js"></script>
 <link rel="stylesheet" type="text/css" href="files/css/flags.css" />
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
@@ -37,12 +47,11 @@
         gtag('set', {'$usrid': 'USER_ID'}); // Set the user ID using signed-in user_id.
         gtag('config', 'UA-177092549-1');
         </script>
-<link rel="stylesheet" href="layout/css/all.min.css" />
-<link rel="stylesheet" href="layout/css/main.css?v=12.9" />
-<link rel="stylesheet" href="layout/css/util.css" />
+<link rel="stylesheet" href="files/css/main.css?v=12.9" />
+<link rel="stylesheet" href="files/css/util.css" />
 <style>body{padding-top:80px}</style>
-<link rel="stylesheet" href="layout/fonts/iconic/css/material-design-iconic-font.min.css">
-<script src="layout/js/main.js"></script>
+<link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">
+<script src="files/js/main.js"></script>
 <script type="text/javascript">
             // Notice how this gets configured before we load Font Awesome
             window.FontAwesomeConfig = { autoReplaceSvg: false }
@@ -419,13 +428,13 @@ a.closearb {
 <span class="slider round"></span>
 </label></div>
 </div>
-<script defer src="/layout/js/jquery.flexslider.js"></script>
+<script defer src="/files/js/jquery.flexslider.js"></script>
 <div class="header">
 <div class="container-fluid">
 <div class="row">
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="layout/images/shells.gif"></a></div>
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="layout/images/smtps.gif"></a></div>
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="layout/images/accs.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="files/images/shells.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="files/images/smtps.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="files/images/accs.gif"></a></div>
 </div><br>
 <div class="header-body">
 
@@ -867,14 +876,14 @@ Become a Seller & Seller Rules<i class="fab fa-btc"></i>
 <br><br>
 Available Payment Methods
 <br>
-<a href="addBalance"><img src="layout/images/pmlogo2.png" height="48" width="49" title="PerfectMoney" /></a>
-<a href="addBalance"><img src="layout/images/btclogo.png" height="48" width="49" title="Bitcoin" /></a>
-<a href="addBalance"><img src="layout/images/ltclogo.png" height="48" width="49" title="Litecoin" /></a>
-<a href="addBalance"><img src="layout/images/bnb.png" height="48" width="49" title="Binance Token" /></a>
-<a href="addBalance"><img src="layout/images/ethereum.png" height="48" width="49" title="Etherum" /></a>
-<a href="addBalance"><img src="layout/images/trc.png" height="48" width="49" title="Tether [USDT/TRC20]" /></a>
-<a href="addBalance"><img src="layout/images/bch.png" height="48" width="49" title="Bitcoin Cash" /></a>
-<a href="addBalance"><img src="layout/images/dgc.jpg" height="48" width="49" title="Dogecoin" /></a>
+<a href="addBalance"><img src="files/images/pmlogo2.png" height="48" width="49" title="PerfectMoney" /></a>
+<a href="addBalance"><img src="files/images/btclogo.png" height="48" width="49" title="Bitcoin" /></a>
+<a href="addBalance"><img src="files/images/ltclogo.png" height="48" width="49" title="Litecoin" /></a>
+<a href="addBalance"><img src="files/images/bnb.png" height="48" width="49" title="Binance Token" /></a>
+<a href="addBalance"><img src="files/images/ethereum.png" height="48" width="49" title="Etherum" /></a>
+<a href="addBalance"><img src="files/images/trc.png" height="48" width="49" title="Tether [USDT/TRC20]" /></a>
+<a href="addBalance"><img src="files/images/bch.png" height="48" width="49" title="Bitcoin Cash" /></a>
+<a href="addBalance"><img src="files/images/dgc.jpg" height="48" width="49" title="Dogecoin" /></a>
 </div>
 </div>
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
