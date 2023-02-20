@@ -251,6 +251,114 @@ input:checked + .slider:before {
 <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-warehouse fa-sm orange-text"></i>
 Hosts
 </a>
+     <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="rdp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-desktop fa-fw"></i> RDPs <span class="badge badge-primary"><span id="rdp"></span></span></a>
+          <a class="dropdown-item" href="cPanel" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-tools fa-fw"></i> cPanels <span class="badge badge-primary"><span id="cpanel"></span></span></a>
+          <a class="dropdown-item" href="shell" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-file-code fa-fw"></i> Shells <span class="badge badge-primary"><span id="shell"></span></span></a>
+        </div>
+      </li>
+       <li class="nav-item dropdown mr-auto">
+        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-google-play fa-sm text-success"></i>
+          Send
+        </a>
+        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mailer" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-leaf fa-fw"></i> Mailers <span class="badge badge-primary"><span id="mailer"></span></span></a>
+          <a class="dropdown-item" href="smtp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-envelope fa-fw"></i> SMTPs <span class="badge badge-primary"><span id="smtp"></span></span></a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown mr-auto">
+        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-mail-bulk fa-sm pink-color"></i> 
+          Leads
+        </a>
+        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="leads" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-award"></i> 100% Validated Leads <span class="badge badge-primary"><span id="leads"></span></span></a>
+          </div>
+      </li>
+
+  <li class="nav-item dropdown mr-auto">
+        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Bank logs(full info)
+        </a>
+        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="accounts" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i>Premium/dating/shop <span class="badge badge-primary"><span id="premium"></span></span></a>
+          <a class="dropdown-item" href="banks" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i>Banks logs <span class="badge badge-primary"><span id="banks"></span></span></a>
+        
+	<li class="nav-item dropdown mr-auto">
+<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Tutorial/Script/Methods
+</a>
+<div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="Scampage" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scampage"></span></span></a>
+<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a>
+	</li>  
+          </ul>
+        </li>
+                      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+                        <?php
+$uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+$q = mysqli_query($dbcon, "SELECT resseller FROM users WHERE username='$uid'") or die(mysqli_error());
+$r         = mysqli_fetch_assoc($q);
+$reselerif = $r['resseller'];
+if ($reselerif == "1") {
+    $uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+    $q = mysqli_query($dbcon, "SELECT soldb FROM resseller WHERE username='$uid'") or die(mysqli_error());
+    $r = mysqli_fetch_assoc($q);
+
+    echo '<li><a href="seller/index.html"><span class="badge" title="Seller Panel"><span class="glyphicon glyphicon-cloud"></span><span id="seller"></span></span></a></li>';
+} else {
+} ?>      
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tickets <span id="alltickets">
+<?php
+$sze112  = mysqli_query($dbcon, "SELECT * FROM ticket WHERE uid='$uid' and seen='1'");
+$r844941 = mysqli_num_rows($sze112);
+if ($r844941 == "1") {
+    echo '<span class="label label-danger">1</span>';
+}
+?>
+</span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="tickets.html" onclick="pageDiv(11,'Tickets - FeluxShop','tickets.html',0); return false;">Tickets <span class="label label-info"><span id="tickets"></span></span><?php
+$s1 = mysqli_query($dbcon, "SELECT * FROM ticket WHERE uid='$uid' and seen='1'");
+$r1 = mysqli_num_rows($s1);
+if ($r1 == "1") {
+    echo '<span class="label label-success"> 1 New</span>';
+}
+?></span></a></li>
+            <li><a href="reports.html" onclick="pageDiv(12,'Reports - FeluxShop','reports.html',0); return false;">Reports <span class="label label-info"><span id="reports"></span></span> <?php
+$s1 = mysqli_query($dbcon, "SELECT * FROM reports WHERE uid='$uid' and seen='1'");
+$r1 = mysqli_num_rows($s1);
+if ($r1 == "1") {
+    echo '<span class="label label-success"> 1 New</span>';
+}
+?></span> </a></li>
+
+           </ul>
+        </li>
+
+<li class="nav-item">
+<a class="nav-link" href="addBalance.html" style="color: var(--font-color);" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">
+<b><span id="balance"></span></b>
+<span class="px-2"><i class="fa fa-plus"></i></span></span>
+</a>
+</li>
+
+
+<?php echo'<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$usrid.'<i class="fa fa-user-secret" style="color: var(--font-color);">
+</i></a>'; ?>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: var(--font-color); background-color: var(--color-nav);">
+	<a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
+<a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
+<a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
+      <a class="dropdown-item" href="logout" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
+</div>
+</li>
+
+</ul>
+
+</div>
+</nav>
 <style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
 	    padding-top: 35px;
@@ -571,6 +679,7 @@ Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> ||
 <br>
 </div>
 </div>
+	
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-users"></i>
@@ -580,12 +689,13 @@ Invite Users<br>
 <div class="row">
 <div class="col-lg-5 col-md-6 col-sm-12">
 <div class="input-group mb-3" style="align-items: center;">
-<input type="text" class="form-control form-control-lg" id="code_user" value="https://odinshop.io/?referral=18229" disabled>
+<input type="text" class="form-control form-control-lg" id="code_user" value="https://xbaseleet.xyz/?referral=18229" disabled>
 <div class="input-group-append">
-<button class="btn btn-outline-secondary copydiv" data-clipboard-text="https://odinshop.io/?referral=18229" type="button">COPY</button>
+<button class="btn btn-outline-secondary copydiv" data-clipboard-text="https://xbaseleet.xyz/?referral=18229" type="button">COPY</button>
 </div>
 </div>
 </div>
+	
 <div class="col-lg-4 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
 <p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Bonus :- </p>
 </div>
@@ -608,7 +718,7 @@ Our News
 </li>
 <li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>New section</b></span><span><small><b>2022/08/02 09:30:54</small></span></b>
 <br>Bulk Offers Section has been activated ,, you can buy bulk tools with cheap prices 50% Off, Visit our new section and enjoy the sellers offers.
-https://odinshop.io/offers
+https://xbaseleet.xyz/offers
 <br>
 </li>
 <li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Report time</b></span><span><small><b>2022/07/29 01:18:06</small></span></b>
@@ -726,6 +836,8 @@ By <b>Seller465</b>, 2023-02-19 </li>
 </div>
 </div>
 </div>
+	
+	
 <div class="tab-pane fade" id="sold" role="tabpanel" aria-labelledby="sold-tab">
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
