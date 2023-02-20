@@ -781,7 +781,6 @@ a.closearb {
 </div>
 	
   <!-- Start your project here-->
-	
 <div class="main-home mt-5 mb-5">
 <div class="row">
 <div class="col-md-8">
@@ -789,26 +788,221 @@ a.closearb {
 <div class="card-header">
 <i class="fas fa-user-shield"></i>
 Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
- <!-- End your project here-->
 </div>
- 	
-<!-- Start your project here-->
-	or: var(--color-card);">
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
 <br>
 If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
 <a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
 <br>
 if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
 <br>
-Our Domains are <p><span style="color: #ff0000;"><strong>xbaseleet.io</strong> || <strong>xbaseleet.pw</strong> || <strong>xbaseleet.se</strong> || <strong>xbaseleet.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>odin.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
 <br>
-<a href="https://xbaseleet.xyz/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<a href="https://odinshop.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
 <br>
 </div>
-	<div>
-	 <!-- End your project here-->
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-users"></i>
+Invite Users<br>
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="row">
+<div class="col-lg-5 col-md-6 col-sm-12">
+<div class="input-group mb-3" style="align-items: center;">
+<input type="text" class="form-control form-control-lg" id="code_user" value="https://odinshop.io/?referral=18229" disabled>
+<div class="input-group-append">
+<button class="btn btn-outline-secondary copydiv" data-clipboard-text="https://odinshop.io/?referral=18229" type="button">COPY</button>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
+<p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Bonus :- </p>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
+<p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Referrals :- 0</p>
+</div>
+</div>
+</div>
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-newspaper"></i>
+Our News
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<ul>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b></span><span><small><b>2022/08/24 06:56:08</small></span></b>
+<br>We are currently working to improve the checkers in all sections ,, stay tuned good things are coming.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>New section</b></span><span><small><b>2022/08/02 09:30:54</small></span></b>
+<br>Bulk Offers Section has been activated ,, you can buy bulk tools with cheap prices 50% Off, Visit our new section and enjoy the sellers offers.
+https://odinshop.io/offers
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Report time</b></span><span><small><b>2022/07/29 01:18:06</small></span></b>
+<br>Dear Buyers
+report/refund time increased to 12hours to give our buyers time to report their bad items, also please rate your purchases to help other buyers and help us to flag the bad sellers and remove them from our platform
+we are here to serve you ,If you have any questions , please don't hesitate to contact us if you have any problem with one of our sellers message us.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Seller apply</b></span><span><small><b>2022/02/03 07:07:04</small></span></b>
+<br>now you can upgrade your account to seller status and start selling with us instantly without support tickets,,for more information visit https://odinshop.io/become-seller
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Requests</b></span><span><small><b>2021/11/20 08:39:24</small></span></b>
+<br>Odin's offers you the peace of mind you need to make any purchase. We’ll not release the funds to the Seller until you have received the item and are satisfied with the transaction. We also make sure the Seller provides the required information for the transaction.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Update</b></span><span><small><b>2021/11/06 08:43:23</small></span></b>
+<br>Now you can rate \ review \ comment about the item you've purchased go to MyOrders or Report Items and choose Rate Seller and submit your comment / rate ,, rating will help other clients to easily find the good sellers you can also check the seller's profile by clicking on seller's number button in blue color inside of sections
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Update</b></span><span><small><b>2021/08/03 07:52:03</small></span></b>
+<br>CMS / Technology detectors installed in cPanel & Shell sections to extract the platform [ Wordpress - Joomla - Drupal - WooCommerce - etc.. ] and extract back side technologies such as [ Laravel - Codeigniter - Yii - Zend - Vue JS - React Js - etc.. ] plus extract Server Technologies such as [ Apache - Nginx - MySQL - Tomcat - etc..] and more updates coming soon.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Email</b></span><span><small><b>2020/10/14 04:57:06</small></span></b>
+<br>Dear users please use a VALID email in your profile incase you lost your password so you can recover it.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Warning</b></span><span><small><b>2020/04/06 06:18:01</small></span></b>
+<br>Orders will be automatically refunded after 6hours of the report time if the seller didnt replay.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Free bonus $</b></span><span><small><b>2020/03/17 06:14:10</small></span></b>
+<br>every time your deposit starts from $50 you will receive a 5% bonus.
+<br>
+</li> </ul>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="mb-3 pb-1">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="added-tab" data-toggle="tab" data-target="#added" type="button" role="tab" aria-controls="added" aria-selected="true">Latest Added Tools</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="sold-tab" data-toggle="tab" data-target="#sold" type="button" role="tab" aria-controls="sold" aria-selected="false">Latest Sold Tools</button>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent"><div class="main-home mt-5 mb-5">
+<div class="row">
+<div class="col-md-8">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-user-shield"></i>
+Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<br>
+If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
+<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+<br>
+if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
+<br>
+Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>odin.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+<br>
+<a href="https://odinshop.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<br>
+</div>
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-users"></i>
+Invite Users<br>
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="row">
+<div class="col-lg-5 col-md-6 col-sm-12">
+<div class="input-group mb-3" style="align-items: center;">
+<input type="text" class="form-control form-control-lg" id="code_user" value="https://odinshop.io/?referral=18229" disabled>
+<div class="input-group-append">
+<button class="btn btn-outline-secondary copydiv" data-clipboard-text="https://odinshop.io/?referral=18229" type="button">COPY</button>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
+<p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Bonus :- </p>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12 mb-3" style=" align-items: center; display: flex; ">
+<p style=" color: #000; font-size: 18px; font-weight: bold; ">Total Referrals :- 0</p>
+</div>
+</div>
+</div>
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-newspaper"></i>
+Our News
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<ul>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b></span><span><small><b>2022/08/24 06:56:08</small></span></b>
+<br>We are currently working to improve the checkers in all sections ,, stay tuned good things are coming.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>New section</b></span><span><small><b>2022/08/02 09:30:54</small></span></b>
+<br>Bulk Offers Section has been activated ,, you can buy bulk tools with cheap prices 50% Off, Visit our new section and enjoy the sellers offers.
+https://odinshop.io/offers
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Report time</b></span><span><small><b>2022/07/29 01:18:06</small></span></b>
+<br>Dear Buyers
+report/refund time increased to 12hours to give our buyers time to report their bad items, also please rate your purchases to help other buyers and help us to flag the bad sellers and remove them from our platform
+we are here to serve you ,If you have any questions , please don't hesitate to contact us if you have any problem with one of our sellers message us.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Seller apply</b></span><span><small><b>2022/02/03 07:07:04</small></span></b>
+<br>now you can upgrade your account to seller status and start selling with us instantly without support tickets,,for more information visit https://odinshop.io/become-seller
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Requests</b></span><span><small><b>2021/11/20 08:39:24</small></span></b>
+<br>Odin's offers you the peace of mind you need to make any purchase. We’ll not release the funds to the Seller until you have received the item and are satisfied with the transaction. We also make sure the Seller provides the required information for the transaction.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Update</b></span><span><small><b>2021/11/06 08:43:23</small></span></b>
+<br>Now you can rate \ review \ comment about the item you've purchased go to MyOrders or Report Items and choose Rate Seller and submit your comment / rate ,, rating will help other clients to easily find the good sellers you can also check the seller's profile by clicking on seller's number button in blue color inside of sections
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Update</b></span><span><small><b>2021/08/03 07:52:03</small></span></b>
+<br>CMS / Technology detectors installed in cPanel & Shell sections to extract the platform [ Wordpress - Joomla - Drupal - WooCommerce - etc.. ] and extract back side technologies such as [ Laravel - Codeigniter - Yii - Zend - Vue JS - React Js - etc.. ] plus extract Server Technologies such as [ Apache - Nginx - MySQL - Tomcat - etc..] and more updates coming soon.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Email</b></span><span><small><b>2020/10/14 04:57:06</small></span></b>
+<br>Dear users please use a VALID email in your profile incase you lost your password so you can recover it.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Warning</b></span><span><small><b>2020/04/06 06:18:01</small></span></b>
+<br>Orders will be automatically refunded after 6hours of the report time if the seller didnt replay.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Free bonus $</b></span><span><small><b>2020/03/17 06:14:10</small></span></b>
+<br>every time your deposit starts from $50 you will receive a 5% bonus.
+<br>
+</li> </ul>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="mb-3 pb-1">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="added-tab" data-toggle="tab" data-target="#added" type="button" role="tab" aria-controls="added" aria-selected="true">Latest Added Tools</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="sold-tab" data-toggle="tab" data-target="#sold" type="button" role="tab" aria-controls="sold" aria-selected="false">Latest Sold Tools</button>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+	
+	
+  <!-- End your project here-->
 
-	</div>
+</div>
 
  </div>
     </div>
