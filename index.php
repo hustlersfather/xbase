@@ -9,14 +9,14 @@
 <meta name="revisit-after" content="2 days">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script><link rel="shortcut icon" href="../../favicon.ico" />
-<title>OdinShop</title>
-<link rel="stylesheet" href="layout/css/bootstrap.min.css">
+<title>XBASELEET</title>
+<link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
 <script src="layout/js/jquery-3.4.1.min.js"></script>
-<script src="layout/js/clipboard.min.js"></script>
+<script src="files/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="layout/js/bootstrap.min.js"></script>
+<script src="files/bootstrap/3/js/bootstrap.min.js"></script>
 <script src="layout/js/bootbox.min.js"></script>
-<link rel="stylesheet" type="text/css" href="layout/css/flags.css" />
+<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
