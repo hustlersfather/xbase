@@ -761,82 +761,25 @@ a.closearb {
 </div>
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+<!----------------start--------------------------->
+
 	
 <?php
  echo'
 <div class="main-home mt-5 mb-5">
 <div class="row">
-	
 <div class="col-md-8">
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
-<div class="card-header"><i class="fas fa-user-shield"></i>welcome <a class="badge badge-pill badge-success">'.$usrid.'</a><br>
-  
-  </div>
-  
-   <div class="card-body" style="color: var(--font-color); background-color: var(--color-card);"><br>If you have any Question ,Problem, Suggestion or Request Please feel free to Open a<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a><br>if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.<br>Our Domains are <p><span style="color: #ff0000;"><strong>xbaseleet.io</strong> || <strong>xbaseleet.pw</strong> || <strong>xbaseleet.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!<br><a href="https://xbaseleet.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a><br></div></div>
-'; ?>
-	
-	
-	
-	
-	
-	
+<div class="card-header"><i class="fas fa-user-shield"></i>Welcome <a class="badge badge-pill badge-success">'.$usrid.'</a>
+<br>
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);"><br>If you have any Question ,Problem, Suggestion or Request Please feel free to Open a <a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+<br>if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
+<br>Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>xbaseleet.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+<br><a href="https://xbaseleet.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<br>
+</div>
+</div>'; 
+?>
 	
 <!----------------start--------------------------->
-
-<div class="main-home mt-5 mb-5">
-<div class="row">
-	
-<div class="col-md-8">
-<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
-<div class="card-header">
-<i class="fas fa-user-shield"></i>
-Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
-</div>
-<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
-<br>
-If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
-<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
-<br>
-if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
-<br>
-Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>odin.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
-<br>
-<a href="https://odinshop.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
-<br>
-</div>
-</div>
-	
-<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
-<div class="card-header">
-<i class="fas fa-newspaper"></i>
-Our News
-</div>
-<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
-<ul>
-<li class='mb-2'>
-	<span class='btn btn-info btn-sm mr-2 mt-1 mb-1'>
-		<b>News buyer</b>
-	</span>
-	      <span>
-		<small><b>2022/08/24 06:56:08</small>
-		</span></b>
-<br>We are currently working to improve the checkers in all sections ,, stay tuned good things are coming.<br>
-
