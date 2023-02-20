@@ -626,7 +626,98 @@ color: #505050;
 </div>
 <script defer src="files/js/jquery.flexslider.js"></script>
 
-	
+	<div class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="assets/images/shells.gif"></a></div>
+      <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="assets/images/smtps.gif"></a>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="assets/images/accs.gif"></a></div>
+  </div><br>
+  <div class="header-body">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-10">
+                <h5 class="card-title text-uppercase text-muted mb-0">Balance</h5>
+                <span class="h2 font-weight-bold mb-0">
+                0 </span>
+              </div>
+              <div class="col-md-2">
+                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                  <i class="fa fa-money-bill-alt "></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-nowrap"><a href="addBalance"> [Add Funds] </a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-10">
+                <h5 class="card-title text-uppercase text-muted mb-0">Orders</h5>
+              <span class="h2 font-weight-bold mb-0">0 </div>
+              <div class="col-md-2">
+                <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                  <i class="fa fa-shopping-cart"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-nowrap"><a href="orders"> [ Show ] </a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-10">
+                <h5 class="card-title text-uppercase text-muted mb-0">Tickets</h5>
+              <span class="h2 font-weight-bold mb-0">0 </div>
+              <div class="col-md-2">
+                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                  <i class="fa fa-cog"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-nowrap"><a href="tickets"> [ Show ]</a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="card card-stats" style="background-color: #fb3!important;">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-10">
+                <h5 class="card-title text-uppercase text-muted mb-0">Reports</h5>
+                <span class="h2 font-weight-bold mb-0">
+                  0 <span>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                      <i class="fas fa-receipt"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                  <span class="text-nowrap"><a href="reports"> [ Show ]</a></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 <div id="mainDiv">
 
 
