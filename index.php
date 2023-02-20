@@ -787,7 +787,9 @@ a.closearb {
 ?>
 <?php echo'<div class="list-group" id="div2">
 <div class="card-header">
-<i class="fas fa-newspaper"></i>Our News</div>'; 
+<i class="fas fa-newspaper"></i>Our News</div<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<ul>
+<li class='mb-2'>'; 
 		 $qq = @mysqli_query($dbcon, "SELECT * FROM news ORDER by id desc LIMIT 5") or die("error here"); 
 
                 
