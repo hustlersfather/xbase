@@ -18,10 +18,14 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <meta name="alfacoins-site-verification" content="">
 <meta name="revisit-after" content="2 days">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script><link rel="shortcut icon" href="../../favicon.ico" />
+<script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script>
+	<link rel="shortcut icon" href="../../favicon.ico" />
 <title>XBASELEET</title>
 <link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+	<script src="files/js/jquery.js"></script> 
+	<script  src="files/js/sorttable.js"></script>
+	<script src="files/js/table-head.js"></script>
 <script src="files/js/jquery-3.4.1.min.js"></script>
 <script src="files/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -1061,10 +1065,6 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-	<script type="text/javascript" src="files/js/jquery.js?1"></script> 
-	<script type="text/javascript" src="files/js/sorttable.js"></script>
-	<script type="text/javascript" src="files/js/table-head.js?3334"></script>
-
 
 
 <script type="text/javascript" src="layout/js/Chart.min.js"></script>
