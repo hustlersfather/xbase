@@ -23,6 +23,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
 <!-- Bootstrap core CSS -->
 <link href="files/css/main.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
 <link href="files/css/util.css" rel="stylesheet">
 <!-- Bootstrap core CSS -->
 	<link href="files/bootstrap/3/css/bootstrap.min.css" rel="stylesheet">
@@ -406,8 +407,9 @@ function hideTooltip(btn) {
 <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Tutorial/Script/Methods
 </a>
 <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="bcampage" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scmampage"></span></span></a>
-<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a></li>  
+<a class="dropdown-item" href="Scampage" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scampage"></span></span></a>
+<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a>
+	</li>  
           </ul>
         </li>
                       
@@ -454,16 +456,25 @@ if ($r1 == "1") {
            </ul>
         </li>
 
-        <li><a href="addBalance.html" onclick="pageDiv(13,'Add Balance - FeluxShop','addBalance.html',0); return false;"><span class="badge"><b><span id="balance"></span></b> <span class="glyphicon glyphicon-plus"></span><span> </a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account  <span class="glyphicon glyphicon-user"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="setting.html" onclick="pageDiv(14,'Setting - FeluxShop','setting.html',0); return false;">Setting <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-            <li><a href="orders.html" onclick="pageDiv(15,'Orders - FeluxShop','orders.html',0); return false;">My Orders <span class="glyphicon glyphicon-shopping-cart pull-right"></span></a></li>
-            <li><a href="addBalance.html" onclick="pageDiv(13,'Add Balance - FeluxShop','addBalance.html',0); return false;">Add Balance <span class="glyphicon glyphicon-usd pull-right"></span></a></li>
+<li class="nav-item">
+<a class="nav-link" href="addBalance.html" style="color: var(--font-color);" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">
+<b><span id="balance"></span></b>
+<span class="px-2"><i class="fa fa-plus"></i></span></span>
+</a>
+</li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> hustlersfather <i class="fa fa-user-secret" style="color: var(--font-color);"></i></a>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: var(--font-color); background-color: var(--color-nav);">
+	<a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
+<a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
+<a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
             
             <li class="divider"></li>
-            <li><a href="logout.html" >Logout <span class="glyphicon glyphicon-off pull-right"></span></a></li>
-          </ul>
+<a class="dropdown-item" href="login" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
+		  </div>         
+		</ul>
         </li>
       </ul>
     </div>
