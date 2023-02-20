@@ -921,6 +921,11 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+	<script type="text/javascript" src="files/js/jquery.js?1"></script> 
+	<script type="text/javascript" src="files/js/sorttable.js"></script>
+	<script type="text/javascript" src="files/js/table-head.js?3334"></script>
+
+
 
 <script type="text/javascript" src="layout/js/Chart.min.js"></script>
 <script>var clipboard = new Clipboard('.copydiv');</script>
