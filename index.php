@@ -387,7 +387,7 @@ function hideTooltip(btn) {
           Leads
         </a>
         <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="leads-5" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-award"></i> 100% Validated Leads <span class="badge badge-primary"><span id="leads"></span></span></a>
+          <a class="dropdown-item" href="leads" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-award"></i> 100% Validated Leads <span class="badge badge-primary"><span id="leads"></span></span></a>
           </div>
       </li>
 
@@ -395,15 +395,15 @@ function hideTooltip(btn) {
         <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Bank logs(full info)
         </a>
         <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="business-1" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i>Premium/dating/shop <span class="badge badge-primary"><span id="premium"></span></span></a>
-          <a class="dropdown-item" href="business-2" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i>Banks logs <span class="badge badge-primary"><span id="banks"></span></span></a>
+          <a class="dropdown-item" href="accounts" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i>Premium/dating/shop <span class="badge badge-primary"><span id="premium"></span></span></a>
+          <a class="dropdown-item" href="banks" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i>Banks logs <span class="badge badge-primary"><span id="banks"></span></span></a>
         
 	<li class="nav-item dropdown mr-auto">
 <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Tutorial/Script/Methods
 </a>
 <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="business-1.html" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scmampage"></span></span></a>
-<a class="dropdown-item" href="business-2.html" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a></li>  
+<a class="dropdown-item" href="bcampage" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scmampage"></span></span></a>
+<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a></li>  
           </ul>
         </li>
                       
