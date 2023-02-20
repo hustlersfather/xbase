@@ -629,10 +629,10 @@ color: #505050;
 	<div class="header">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="assets/images/shells.gif"></a></div>
-      <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="assets/images/smtps.gif"></a>
+      <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="files/images/shells.gif"></a></div>
+      <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="files/images/smtps.gif"></a>
     </div>
-    <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="assets/images/accs.gif"></a></div>
+    <div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="files/images/accs.gif"></a></div>
   </div><br>
   <div class="header-body">
     <div class="row">
