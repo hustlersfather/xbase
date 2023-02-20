@@ -215,7 +215,7 @@ input:checked + .slider:before {
         })();
 
   </script>
-
+<style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
 	    padding-top: 35px;
 }
