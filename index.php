@@ -1,40 +1,23 @@
-<?php
-ob_start();
-session_start();
-date_default_timezone_set('UTC');
-include "includes/config.php";
 
-if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
-    header("location: login");
-    exit();
-}
-$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
-?>
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Bootstrap CSS -->
-<link href="files/bootstrap/3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="js/css/datatables-1.10.25.min.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="alfacoins-site-verification" content="5ef8c2279aa605ef8c2279aa965ef8c2279aacb_ALFAcoins">
+<meta name="revisit-after" content="2 days">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script><link rel="shortcut icon" href="../../favicon.ico" />
+<title>OdinShop</title>
+<link rel="stylesheet" href="layout/css/bootstrap.min.css">
+<script src="layout/js/jquery-3.4.1.min.js"></script>
+<script src="layout/js/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/bootbox.min.js"></script>
+<link rel="stylesheet" type="text/css" href="layout/css/flags.css" />
 
-  <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />  
-<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
-<link rel="stylesheet" href="files/css/main.css" />
-<link rel="stylesheet" href="files/css/util.css" />
-<style>body{padding-top:80px}</style>
-<link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">   
-<style>
-            @import url(//fonts.googleapis.com/css?family=Roboto:400);
-            .navbar-nav .dropdown-menu
-            {
-            margin:0 !important
-            }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
@@ -42,143 +25,37 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="files/css/flags.css" />
-<link rel="shortcut icon" href="files/img/favicon.ico" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-177092549-1"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('set', {'$usrid': 'USER_ID'}); // Set the user ID using signed-in user_id.
+        gtag('config', 'UA-177092549-1');
+        </script>
+<link rel="stylesheet" href="layout/css/all.min.css" />
+<link rel="stylesheet" href="layout/css/main.css?v=12.9" />
+<link rel="stylesheet" href="layout/css/util.css" />
+<style>body{padding-top:80px}</style>
+<link rel="stylesheet" href="layout/fonts/iconic/css/material-design-iconic-font.min.css">
+<script src="layout/js/main.js"></script>
+<script type="text/javascript">
+            // Notice how this gets configured before we load Font Awesome
+            window.FontAwesomeConfig = { autoReplaceSvg: false }
+        </script>
+<style>
+            @import url(//fonts.googleapis.com/css?family=Roboto:400);
+            .navbar-nav .dropdown-menu
+            {
+            margin:0 !important
+            }
+        </style>
 </head>
 <style>
-#table {
-  .sortable
-}
-table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
-    content: " \25BE" 
-}
-
-.label-as-badge {
-    border-radius: 0.5em;
-}
-
-body {
-    padding-top:50px;
-}
-table.floatThead-table {
-    border-top: none;
-    border-bottom: none;
-    background-color: #fff;
-}
-@media (min-width: 768px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-}
-
-#mydiv {
-  height: 400px;
-  position: relative;
-}
-.ajax-loader {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto; /* presto! */
-
-}
-
-   
-    
-
-</style>
-<script type="text/javascript">
-             function ajaxinfo() {
-                $.ajax({
-                    type: 'GET',
-                    url: 'ajaxinfo.html',
-                    timeout: 10000,
-
-                    success: function(data) {
-                        if (data != '01') {
-                            var data = JSON.parse(data);
-                            for (var prop in data) {
-                                $("#" + prop).html(data[prop]).show();
-                            }
-                        } else {
-                            window.location = "logout.html";
-                        }
-                    }
-                });
-
-            }
-            setInterval(function() {
-                ajaxinfo()
-            }, 3000);
-
-            ajaxinfo();
-
-$(document).keydown(function(event){
-    if(event.which=="17")
-        cntrlIsPressed = true;
-});
-
-$(document).keyup(function(){
-    cntrlIsPressed = false;
-});
-
-var cntrlIsPressed = false;
-
-
-function pageDiv(n,t,u,x){
-  if(cntrlIsPressed){
-    window.open(u, '_blank');
-    return false;
-  }
-        var obj = { Title: t, Url: u };
-        if ( ("/"+obj.Url) != location.pathname) {
-        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
-        	else{history.replaceState(obj, obj.Title, obj.Url);}
-
-    	}
-      document.title = obj.Title;
-    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
-    $.ajax({
-    type:       'GET',
-    url:        'divPage'+n+'.html',
-    success:    function(data)
-    {
-        $("#mainDiv").html(data).show();
-        newTableObject = document.getElementById('table');
-        sorttable.makeSortable(newTableObject);
-        $(".sticky-header").floatThead({top:60});
-        if(x==0){ajaxinfo();}
-      }});
-    if (typeof stopCheckBTC === 'function') { 
-    var a = stopCheckBTC();
-     }
-
-}
-
-$(window).on("popstate", function(e) {
-        location.replace(document.location);
-
-});
-
-
-function setTooltip(btn, message) {
-  console.log("hide-1");
-  $(btn).tooltip('hide')
-    .attr('data-original-title', message)
-    .tooltip('show');
-     console.log("show");
-}
-
-function hideTooltip(btn) {
-  setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
-}
-</script>
-	<style>
     .navbar-nav .dropdown-menu
     {
       margin:0 !important
@@ -310,106 +187,7 @@ input:checked + .slider:before {
 }
 
   </style>
-<script type="text/javascript">
-             function ajaxinfo() {
-                $.ajax({
-                    type: 'GET',
-                    url: 'ajaxinfo.html',
-                    timeout: 10000,
-
-                    success: function(data) {
-                        if (data != '01') {
-                            var data = JSON.parse(data);
-                            for (var prop in data) {
-                                $("#" + prop).html(data[prop]).show();
-                            }
-                        } else {
-                            window.location = "logout";
-                        }
-                    }
-                });
-
-            }
-            setInterval(function() {
-                ajaxinfo()
-            }, 3000);
-
-            ajaxinfo();
-
-$(document).keydown(function(event){
-    if(event.which=="17")
-        cntrlIsPressed = true;
-});
-
-$(document).keyup(function(){
-    cntrlIsPressed = false;
-});
-
-var cntrlIsPressed = false;
-
-
-function pageDiv(n,t,u,x){
-  if(cntrlIsPressed){
-    window.open(u, '_blank');
-    return false;
-  }
-        var obj = { Title: t, Url: u };
-        if ( ("/"+obj.Url) != location.pathname) {
-        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
-        	else{history.replaceState(obj, obj.Title, obj.Url);}
-
-    	}
-      document.title = obj.Title;
-    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
-    $.ajax({
-    type:       'GET',
-    url:        'divPage0.php',
-    success:    function(data)
-    {
-        $("#mainDiv").html(data).show();
-        newTableObject = document.getElementById('table');
-        sorttable.makeSortable(newTableObject);
-        $(".sticky-header").floatThead({top:60});
-        if(x==0){ajaxinfo();}
-      }});
-    if (typeof stopCheckBTC === 'function') { 
-    var a = stopCheckBTC();
-     }
-
-}
-
-$(window).on("popstate", function(e) {
-        location.replace(document.location);
-
-});
-
-
-$(window).on('load', function() {
-$('.dropdown').hover(function(){ $('.dropdown-toggle', this).trigger('click'); });
-   pageDiv(0,'Main - xbaseleet','index',1);
-   var clipboard = new Clipboard('.copyit');
-    clipboard.on('success', function(e) {
-      setTooltip(e.trigger, 'Copied!');
-      hideTooltip(e.trigger);
-      e.clearSelection();
-   });
-
-});
-
-
-function setTooltip(btn, message) {
-  console.log("hide-1");
-  $(btn).tooltip('hide')
-    .attr('data-original-title', message)
-    .tooltip('show');
-     console.log("show");
-}
-
-function hideTooltip(btn) {
-  setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
-}
-</script>
-		<script>
+<script>
 
         function setTheme(themeName) {
             localStorage.setItem('theme', themeName);
@@ -437,137 +215,7 @@ function hideTooltip(btn) {
         })();
 
   </script>
-  <nav class="navbar navbar-expand-xl navbar  navbar-light " style="
-    position:fixed;
-    background-color: var(--color-nav);
-    z-index:1;
-    top:0;
-    left:0;
-    right:0;
-    line-height: 1.5;
-    font-family: 'Lato', sans-serif;
-    font-size: 15px;
-    padding-top: 0.5rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    ">
-    <a class="navbar-brand" href="index" style="color: var(--font-color);"><img width="40px" src="files/images/logo.png">XBASELEET</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="navbar-toggler-icon"></i></button><div class="collapse navbar-collapse order-1" id="navbarSupportedContent"><ul class="navbar-nav mr-auto">
-	  <li class="nav-item dropdown mr-auto">
-        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-warehouse fa-sm orange-text"></i>
-          Hosts
-        </a>
-        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="rdp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-desktop fa-fw"></i> RDPs <span class="badge badge-primary"><span id="rdp"></span></span></a>
-          <a class="dropdown-item" href="cPanel" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-tools fa-fw"></i> cPanels <span class="badge badge-primary"><span id="cpanel"></span></span></a>
-          <a class="dropdown-item" href="shell" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-file-code fa-fw"></i> Shells <span class="badge badge-primary"><span id="shell"></span></span></a>
-        </div>
-      </li>
-       <li class="nav-item dropdown mr-auto">
-        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-google-play fa-sm text-success"></i>
-          Send
-        </a>
-        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="mailer" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-leaf fa-fw"></i> Mailers <span class="badge badge-primary"><span id="mailer"></span></span></a>
-          <a class="dropdown-item" href="smtp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-envelope fa-fw"></i> SMTPs <span class="badge badge-primary"><span id="smtp"></span></span></a>
-        </div>
-      </li>
-      
-      <li class="nav-item dropdown mr-auto">
-        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-mail-bulk fa-sm pink-color"></i> 
-          Leads
-        </a>
-        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="leads" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-award"></i> 100% Validated Leads <span class="badge badge-primary"><span id="leads"></span></span></a>
-          </div>
-      </li>
 
-  <li class="nav-item dropdown mr-auto">
-        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Bank logs(full info)
-        </a>
-        <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="accounts" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i>Premium/dating/shop <span class="badge badge-primary"><span id="premium"></span></span></a>
-          <a class="dropdown-item" href="banks" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i>Banks logs <span class="badge badge-primary"><span id="banks"></span></span></a>
-        
-	<li class="nav-item dropdown mr-auto">
-<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Tutorial/Script/Methods
-</a>
-<div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="Scampage" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scampage"></span></span></a>
-<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a>
-	</li>  
-          </ul>
-        </li>
-                      
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-                        <?php
-$uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
-$q = mysqli_query($dbcon, "SELECT resseller FROM users WHERE username='$uid'") or die(mysqli_error());
-$r         = mysqli_fetch_assoc($q);
-$reselerif = $r['resseller'];
-if ($reselerif == "1") {
-    $uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
-    $q = mysqli_query($dbcon, "SELECT soldb FROM resseller WHERE username='$uid'") or die(mysqli_error());
-    $r = mysqli_fetch_assoc($q);
-
-    echo '<li><a href="seller/index.html"><span class="badge" title="Seller Panel"><span class="glyphicon glyphicon-cloud"></span><span id="seller"></span></span></a></li>';
-} else {
-} ?>      
-<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tickets <span id="alltickets">
-<?php
-$sze112  = mysqli_query($dbcon, "SELECT * FROM ticket WHERE uid='$uid' and seen='1'");
-$r844941 = mysqli_num_rows($sze112);
-if ($r844941 == "1") {
-    echo '<span class="label label-danger">1</span>';
-}
-?>
-</span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="tickets.html" onclick="pageDiv(11,'Tickets - FeluxShop','tickets.html',0); return false;">Tickets <span class="label label-info"><span id="tickets"></span></span><?php
-$s1 = mysqli_query($dbcon, "SELECT * FROM ticket WHERE uid='$uid' and seen='1'");
-$r1 = mysqli_num_rows($s1);
-if ($r1 == "1") {
-    echo '<span class="label label-success"> 1 New</span>';
-}
-?></span></a></li>
-            <li><a href="reports.html" onclick="pageDiv(12,'Reports - FeluxShop','reports.html',0); return false;">Reports <span class="label label-info"><span id="reports"></span></span> <?php
-$s1 = mysqli_query($dbcon, "SELECT * FROM reports WHERE uid='$uid' and seen='1'");
-$r1 = mysqli_num_rows($s1);
-if ($r1 == "1") {
-    echo '<span class="label label-success"> 1 New</span>';
-}
-?></span> </a></li>
-
-           </ul>
-        </li>
-
-<li class="nav-item">
-<a class="nav-link" href="addBalance.html" style="color: var(--font-color);" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">
-<b><span id="balance"></span></b>
-<span class="px-2"><i class="fa fa-plus"></i></span></span>
-</a>
-</li>
-
-
-<?php echo'<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$usrid.'<i class="fa fa-user-secret" style="color: var(--font-color);">
-</i></a>'; ?>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: var(--font-color); background-color: var(--color-nav);">
-	<a class="dropdown-item" href="setting" style="color: var(--font-color);"><span class="px-2">Setting <i class="fa fa-cog"></i></span></a>
-<a class="dropdown-item" href="orders" style="color: var(--font-color);"><span class="px-2">My Orders <i class="fa fa-shopping-cart"></i></span></a>
-<a class="dropdown-item" href="addBalance" style="color: var(--font-color);"><span class="px-2">Add Balance <i class="fa fa-money-bill-alt"></i></span></a>
-      <a class="dropdown-item" href="logout" style="color: var(--font-color);"><span class="px-2">Logout <i class="fa fa-door-open"></i></span></a>
-</div>
-</li>
-
-</ul>
-
-</div>
-</nav>
-<style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
 	    padding-top: 35px;
 }
@@ -619,8 +267,8 @@ a.closearb {
 
 </style>
 <body class="them loading">
-<link rel="stylesheet" href="/files/css/flexslider5.css" type="text/css">
-<script src="/files/js/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="/layout/css/flexslider5.css" type="text/css">
+<script src="/layout/js/jquery.flexslider-min.js"></script>
 <style>
 #tour {
     font-family: 'Raleway', sans-serif;
@@ -775,9 +423,9 @@ a.closearb {
 <div class="header">
 <div class="container-fluid">
 <div class="row">
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="files/images/shells.gif"></a></div>
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="files/images/smtps.gif"></a></div>
-<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="files/images/accs.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="shell"><img style="border: 3px solid;" src="layout/images/shells.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="smtp"><img style="border: 3px solid;" src="layout/images/smtps.gif"></a></div>
+<div class="col-lg-3 col-md-6 col-sm-12" style="text-align:center;"><a href="accounts-7"><img style="border: 3px solid;" src="layout/images/accs.gif"></a></div>
 </div><br>
 <div class="header-body">
 
@@ -864,9 +512,8 @@ a.closearb {
 </div>
 </div>
 </div>
-	
-  <!-- Start your project here-->
-	
+
+
 <div class="main-home mt-5 mb-5">
 <div class="row">
 <div class="col-md-8">
@@ -912,58 +559,402 @@ Invite Users<br>
 </div>
 </div>
 </div>
-	
-	
-	
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
-<i class="fas fa-newspaper"></i>Our News
+<i class="fas fa-newspaper"></i>
+Our News
 </div>
-	
-	
 <div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
 <ul>
-<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b>
-</span><span><small><b>2022/08/24 06:56:08</small></span></b>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>News buyer</b></span><span><small><b>2022/08/24 06:56:08</small></span></b>
 <br>We are currently working to improve the checkers in all sections ,, stay tuned good things are coming.
 <br>
-
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>New section</b></span><span><small><b>2022/08/02 09:30:54</small></span></b>
+<br>Bulk Offers Section has been activated ,, you can buy bulk tools with cheap prices 50% Off, Visit our new section and enjoy the sellers offers.
+https://odinshop.io/offers
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Report time</b></span><span><small><b>2022/07/29 01:18:06</small></span></b>
+<br>Dear Buyers
+report/refund time increased to 12hours to give our buyers time to report their bad items, also please rate your purchases to help other buyers and help us to flag the bad sellers and remove them from our platform
+we are here to serve you ,If you have any questions , please don't hesitate to contact us if you have any problem with one of our sellers message us.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Seller apply</b></span><span><small><b>2022/02/03 07:07:04</small></span></b>
+<br>now you can upgrade your account to seller status and start selling with us instantly without support tickets,,for more information visit https://odinshop.io/become-seller
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Requests</b></span><span><small><b>2021/11/20 08:39:24</small></span></b>
+<br>Odin's offers you the peace of mind you need to make any purchase. We’ll not release the funds to the Seller until you have received the item and are satisfied with the transaction. We also make sure the Seller provides the required information for the transaction.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Update</b></span><span><small><b>2021/11/06 08:43:23</small></span></b>
+<br>Now you can rate \ review \ comment about the item you've purchased go to MyOrders or Report Items and choose Rate Seller and submit your comment / rate ,, rating will help other clients to easily find the good sellers you can also check the seller's profile by clicking on seller's number button in blue color inside of sections
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Update</b></span><span><small><b>2021/08/03 07:52:03</small></span></b>
+<br>CMS / Technology detectors installed in cPanel & Shell sections to extract the platform [ Wordpress - Joomla - Drupal - WooCommerce - etc.. ] and extract back side technologies such as [ Laravel - Codeigniter - Yii - Zend - Vue JS - React Js - etc.. ] plus extract Server Technologies such as [ Apache - Nginx - MySQL - Tomcat - etc..] and more updates coming soon.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Email</b></span><span><small><b>2020/10/14 04:57:06</small></span></b>
+<br>Dear users please use a VALID email in your profile incase you lost your password so you can recover it.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Warning</b></span><span><small><b>2020/04/06 06:18:01</small></span></b>
+<br>Orders will be automatically refunded after 6hours of the report time if the seller didnt replay.
+<br>
+</li>
+<li class='mb-2'><span class='btn btn-info btn-sm mr-2 mt-1 mb-1'><b>Free bonus $</b></span><span><small><b>2020/03/17 06:14:10</small></span></b>
+<br>every time your deposit starts from $50 you will receive a 5% bonus.
+<br>
 </li> </ul>
 </div>
 </div>
 </div>
-  <!-- End your project here-->
-
+<div class="col-md-4">
+<div class="mb-3 pb-1">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="added-tab" data-toggle="tab" data-target="#added" type="button" role="tab" aria-controls="added" aria-selected="true">Latest Added Tools</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="sold-tab" data-toggle="tab" data-target="#sold" type="button" role="tab" aria-controls="sold" aria-selected="false">Latest Sold Tools</button>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane fade  show active" id="added" role="tabpanel" aria-labelledby="added-tab">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-table"></i>
+Latest 10 Added Tools
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<div id="roncaa" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scroll-area-lg" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scrollbar-container ps--active-y" style="color: var(--font-color); background-color: var(--color-card);">
+<ul class="list-group list-group-flush" style="color: var(--font-color); background-color: var(--color-card);">
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>40</b></font> items in The <font color="green"><b>
+<a class="text-success" href="shell">
+shell </a></b></font> section.
+By <b>Seller471</b>, 2023-02-20 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>38</b></font> items in The <font color="green"><b>
+<a class="text-success" href="cPanel">
+cpanel </a></b></font> section.
+By <b>Seller476</b>, 2023-02-20 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>131</b></font> items in The <font color="green"><b>
+<a class="text-success" href="business-2">
+Godaddy Webmail </a></b></font> section.
+By <b>Seller382</b>, 2023-02-20 </li>
+ <li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>70</b></font> items in The <font color="green"><b>
+<a class="text-success" href="cPanel">
+cpanel </a></b></font> section.
+By <b>Seller450</b>, 2023-02-20 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>32</b></font> items in The <font color="green"><b>
+<a class="text-success" href="shell">
+shell </a></b></font> section.
+By <b>Seller465</b>, 2023-02-20 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>9</b></font> items in The <font color="green"><b>
+<a class="text-success" href="business-2">
+Godaddy Webmail </a></b></font> section.
+By <b>Seller467</b>, 2023-02-19 </li>
+ <li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>8</b></font> items in The <font color="green"><b>
+<a class="text-success" href="cPanel">
+cpanel </a></b></font> section.
+By <b>Seller281</b>, 2023-02-19 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>460</b></font> items in The <font color="green"><b>
+<a class="text-success" href="business-3">
+Office365 Webmail </a></b></font> section.
+By <b>Seller463</b>, 2023-02-19 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>34</b></font> items in The <font color="green"><b>
+<a class="text-success" href="smtp">
+smtp </a></b></font> section.
+By <b>Seller463</b>, 2023-02-19 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>8</b></font> items in The <font color="green"><b>
+<a class="text-success" href="cPanel">
+cpanel </a></b></font> section.
+By <b>Seller465</b>, 2023-02-19 </li>
+</ul>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="sold" role="tabpanel" aria-labelledby="sold-tab">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-table"></i>
+Latest 10 Sold Tools
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<div id="roncaa" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scroll-area-lg" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scrollbar-container ps--active-y" style="color: var(--font-color); background-color: var(--color-card);">
+<ul class="list-group list-group-flush" style="color: var(--font-color); background-color: var(--color-card);">
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller460</b> Sold <font color="green"><b>
+<a class="text-success" href="shell">shell</a></b></font> To <b>Buyer11572</b>, 2023-02-20 07:20:34 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller341</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer18848</b>, 2023-02-20 05:33:33 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller376</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer18848</b>, 2023-02-20 05:33:22 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller353</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer18848</b>, 2023-02-20 05:33:13 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller376</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer18848</b>, 2023-02-20 05:32:53 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller341</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer18848</b>, 2023-02-20 05:32:47 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller281</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer16819</b>, 2023-02-20 00:48:10 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller309</b> Sold <font color="green"><b>
+<a class="text-success" href="shell">shell</a></b></font> To <b>Buyer16137</b>, 2023-02-19 23:42:18 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller465</b> Sold <font color="green"><b>
+<a class="text-success" href="shell">shell</a></b></font> To <b>Buyer16137</b>, 2023-02-19 23:27:19 </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+<b>Seller341</b> Sold <font color="green"><b>
+<a class="text-success" href="cPanel">cpanel</a></b></font> To <b>Buyer12524</b>, 2023-02-19 23:13:48 </li>
+</ul>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-3 pb-1">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="offer-tab" data-toggle="tab" data-target="#offer" type="button" role="tab" aria-controls="offer" aria-selected="true">Latest Sellers Offers</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="request-tab" data-toggle="tab" data-target="#request" type="button" role="tab" aria-controls="request" aria-selected="false">Latest Buyers Requests</button>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane fade  show active" id="offer" role="tabpanel" aria-labelledby="offer-tab">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-table"></i>
+Latest 10 Added Sellers Offers
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<div id="roncaa" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scroll-area-lg" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scrollbar-container ps--active-y" style="color: var(--font-color); background-color: var(--color-card);">
+<ul class="list-group list-group-flush" style="color: var(--font-color); background-color: var(--color-card);">
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>100 mixed shells</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller447</b>, 19/01/2023 05:15:10 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Fully Verified CashApp Account BTC Enable</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller466</b>, 02/01/2023 12:56:28 am </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Fully Verified Wise Account [Business] [id+pass+email+documents]</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller466</b>, 02/01/2023 12:51:15 am </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>ETH, BSC, MATIC Drainer</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller455</b>, 03/11/2022 06:41:27 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Creation of PMTA and SMTP for turnkey distribution</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller455</b>, 03/11/2022 06:37:35 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>ETH Drainer</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller447</b>, 04/10/2022 08:05:59 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>20 cpanels mixed country</b></font> items in The <font color="green"><b>
+<a class="text-success" href="offers">Offers</a></b></font> section.
+By <b>Seller447</b>, 26/09/2022 03:10:22 pm </li>
+</ul>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-table"></i>
+Latest 10 Added Buyers Requests
+</div>
+<div class="card-body " style="color: var(--font-color); background-color: var(--color-card);">
+<div id="roncaa" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scroll-area-lg" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="scrollbar-container ps--active-y" style="color: var(--font-color); background-color: var(--color-card);">
+<ul class="list-group list-group-flush" style="color: var(--font-color); background-color: var(--color-card);">
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>MEDIA TEMPLE SHELLS</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer9874</b>, 2023/02/01 11:28:22 am </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>domain smtp</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer18151</b>, 2023/01/27 16:32:48 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Looking for medium.com hacked account</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer17148</b>, 2023/01/07 16:32:18 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>shell/cpanel - DA/PA 40+</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer18140</b>, 2022/12/20 17:59:38 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Hostgator Cpanel </b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer9660</b>, 2022/12/15 00:06:40 am </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>bulk login/pass usa nelikvid</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer18110</b>, 2022/12/14 15:11:47 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Bulk japan shells</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer17300</b>, 2022/12/13 20:55:39 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>Cpanel</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer9660</b>, 2022/12/08 19:39:15 pm </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>GODADDY</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer15241</b>, 2022/12/08 11:25:45 am </li>
+<li class="list-group-item" style="color: var(--font-color); background-color: var(--color-card);">
+Added <font color="red"><b>OPEN REDIRECT URL</b></font> items in The <font color="green"><b>
+<a class="text-success" href="requests">Requests</a></b></font> section.
+By <b>Buyer15241</b>, 2022/12/03 00:41:31 am </li>
+</ul>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card mb-3 pb-1" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fab fa-btc"></i>
+Become Seller
+</div>
+<div class="card-body payment_methods" style="color: var(--font-color); background-color: var(--color-card);">
+Interested in becoming a <b>Seller <i class="fab fa-btc">
+</i></b> at OdinShop ?
+<a href="become-seller" class="btn btn-primary">
+Become a Seller & Seller Rules<i class="fab fa-btc"></i>
+</a>
+<br><br>
+Available Payment Methods
+<br>
+<a href="addBalance"><img src="layout/images/pmlogo2.png" height="48" width="49" title="PerfectMoney" /></a>
+<a href="addBalance"><img src="layout/images/btclogo.png" height="48" width="49" title="Bitcoin" /></a>
+<a href="addBalance"><img src="layout/images/ltclogo.png" height="48" width="49" title="Litecoin" /></a>
+<a href="addBalance"><img src="layout/images/bnb.png" height="48" width="49" title="Binance Token" /></a>
+<a href="addBalance"><img src="layout/images/ethereum.png" height="48" width="49" title="Etherum" /></a>
+<a href="addBalance"><img src="layout/images/trc.png" height="48" width="49" title="Tether [USDT/TRC20]" /></a>
+<a href="addBalance"><img src="layout/images/bch.png" height="48" width="49" title="Bitcoin Cash" /></a>
+<a href="addBalance"><img src="layout/images/dgc.jpg" height="48" width="49" title="Dogecoin" /></a>
+</div>
+</div>
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-chart-pie"></i>
+Our Stuff
+</div>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+</div>
+</div>
+<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+<div style="position:absolute;width:200%;height:200%;left:0; top:0">
+</div>
+</div>
+</div>
+<canvas id="myPieChart" width="278" height="278" style="display: block; width: 278px; height: 278px;" class="chartjs-render-monitor"></canvas>
+</div>
+<div class="card-footer small text-primary" style="color: var(--font-color); background-color: var(--color-card);">Page Loaded in 0.9973 Seconds</div>
+</div>
+</div>
+</div>
 </div>
 
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/60bb67b9dd60a20abbe4bab4/1f7e0qbvo';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
-  </div>
-    <!-- Footer Links -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-      <div class="container-fluid">
-        © 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
-      </div>
-    </div>
-    <!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
- <!-- Optional JavaScript; choose one of the two! -->
-
-	<!-- SCRIPTS -->
-<!-- Optional JavaScript; choose one of the two! -->
-  <!-- Option 1: Bootstrap Bundle with Popper -->
- <script src="js/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
- <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="files/js/jquery.js?1"></script>
-<script type="text/javascript" src="files/js/sorttable.js"></script>
-<script type="text/javascript" src="files/js/table-head.js?3334"></script>
- <script type="text/javascript" src="js/dt-1.10.25datatables.min.js"></script>
+<script type="text/javascript" src="layout/js/Chart.min.js"></script>
+<script>var clipboard = new Clipboard('.copydiv');</script>
+<script type="text/javascript">
 
 
- 
+	            // Set new default font family and font color to mimic Bootstrap's default styling
+	            Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+	            Chart.defaults.global.defaultFontColor = '#2196F3';
+
+	            // Pie Chart Example
+	            var ctx = document.getElementById("myPieChart");
+	            var myPieChart = new Chart(ctx, {
+	              type: 'pie',
+	              data: {
+	                labels: ['cPanels [10611]','Leads [165]','Shells [922]','RDPs [143]','Mailers [578]','Scripts [3]', 'Tutorials [0]', 'Accounts [1628]', 'SMTPs [1809]', 'Webmails [14715]', 'FTPs [86]', 'SSH [149]'],
+	                datasets: [{
+	                  data: ['10611','165','922','143','578','3','0', '1628','1809','14715', '86', '149'],
+	                  backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745','#e1297d','#551a8b', '#D5B0F7', '#B5D2ED', '#212529', '#256633', '#633256', '#97de12' ],
+	                }],
+	              },
+
+	              options:{
+	            	  cutoutPercentage:50,
+	                tooltips: {
+	                callbacks: {
+	                  label: function(tooltipItem, data) {
+	                    var dataset = data.datasets[tooltipItem.datasetIndex];
+	                    var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+	                    var total = meta.total;
+	                    var currentValue = dataset.data[tooltipItem.index];
+	                    var percentage = parseFloat((currentValue/total*100).toFixed(1));
+	                    return currentValue + ' (' + percentage + '%)';
+	                  },
+	                  title: function(tooltipItem, data) {
+	                    return data.labels[tooltipItem[0].index];
+	                  }
+	                }
+	              }
+	            }
+	            });
+	        </script>
+</div>
+</div>
 </body>
 </html>
-
