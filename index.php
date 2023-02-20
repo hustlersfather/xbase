@@ -266,7 +266,7 @@ function pageDiv(n,t,u,x){
     $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
     type:       'GET',
-    url:        'divPage'+n+'.html',
+    url:        'divPage'+n+'.',
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
@@ -355,7 +355,7 @@ function hideTooltip(btn) {
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     ">
-    <a class="navbar-brand" href="main" style="color: var(--font-color);"><img width="40px" src="assets/images/logo.png">XBASELEET</a>
+    <a class="navbar-brand" href="index" style="color: var(--font-color);"><img width="40px" src="files/images/logo.png">XBASELEET</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="navbar-toggler-icon"></i></button><div class="collapse navbar-collapse order-1" id="navbarSupportedContent"><ul class="navbar-nav mr-auto">
 	  <li class="nav-item dropdown mr-auto">
@@ -364,7 +364,7 @@ function hideTooltip(btn) {
         </a>
         <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="rdp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-desktop fa-fw"></i> RDPs <span class="badge badge-primary"><span id="rdp"></span></span></a>
-          <a class="dropdown-item" href="cPanel" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-tools fa-fw"></i> cPanels <span class="badge badge-primary"><span id="cpanels"></span></span></a>
+          <a class="dropdown-item" href="cPanel" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-tools fa-fw"></i> cPanels <span class="badge badge-primary"><span id="cpanel"></span></span></a>
           <a class="dropdown-item" href="shell" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-file-code fa-fw"></i> Shells <span class="badge badge-primary"><span id="shell"></span></span></a>
         </div>
       </li>
