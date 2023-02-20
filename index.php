@@ -45,54 +45,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <link rel="stylesheet" type="text/css" href="files/css/flags.css" />
 <link rel="shortcut icon" href="files/img/favicon.ico" />
 </head>
-<style>
-#table {
-  .sortable
-}
-table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
-    content: " \25BE" 
-}
 
-.label-as-badge {
-    border-radius: 0.5em;
-}
-
-body {
-    padding-top:50px;
-}
-table.floatThead-table {
-    border-top: none;
-    border-bottom: none;
-    background-color: #fff;
-}
-@media (min-width: 768px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-.navbar-nav .dropdown-menu
-    {
-      margin:0 !important
-    }
-}
-
-#mydiv {
-  height: 400px;
-  position: relative;
-}
-.ajax-loader {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto; /* presto! */
-
-}
-
-   
-    
-
-</style>
 	<style>
     .navbar-nav .dropdown-menu
     {
@@ -225,6 +178,78 @@ input:checked + .slider:before {
 }
 
   </style>
+<script>
+
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-dark');
+                document.getElementById('slider').checked = false;
+            } else {
+                setTheme('theme-light');
+              document.getElementById('slider').checked = true;
+            }
+        })();
+
+  </script>
+	<style>
+#table {
+  .sortable
+}
+table th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25BE" 
+}
+
+.label-as-badge {
+    border-radius: 0.5em;
+}
+
+body {
+    padding-top:50px;
+}
+table.floatThead-table {
+    border-top: none;
+    border-bottom: none;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+#mydiv {
+  height: 400px;
+  position: relative;
+}
+.ajax-loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; /* presto! */
+
+}
+
+   
+    
+
+</style>
 <script type="text/javascript">
              function ajaxinfo() {
                 $.ajax({
@@ -239,7 +264,7 @@ input:checked + .slider:before {
                                 $("#" + prop).html(data[prop]).show();
                             }
                         } else {
-                            window.location = "logout";
+                            window.location = "logout.html";
                         }
                     }
                 });
@@ -278,7 +303,7 @@ function pageDiv(n,t,u,x){
     $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
     $.ajax({
     type:       'GET',
-    url:        'divPage'+n+'.',
+    url:        'divPage'+n+'.html',
     success:    function(data)
     {
         $("#mainDiv").html(data).show();
@@ -301,7 +326,7 @@ $(window).on("popstate", function(e) {
 
 $(window).on('load', function() {
 $('.dropdown').hover(function(){ $('.dropdown-toggle', this).trigger('click'); });
-   pageDiv(0,'Main - xbaseleet','index',1);
+   pageDiv(0,'Main - Xbaseleet','index',1);
    var clipboard = new Clipboard('.copyit');
     clipboard.on('success', function(e) {
       setTooltip(e.trigger, 'Copied!');
@@ -324,34 +349,6 @@ function hideTooltip(btn) {
   setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
 }
 </script>
-		<script>
-
-        function setTheme(themeName) {
-            localStorage.setItem('theme', themeName);
-            document.documentElement.className = themeName;
-        }
-
-        // function to toggle between light and dark theme
-        function toggleTheme() {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-light');
-            } else {
-                setTheme('theme-dark');
-            }
-        }
-
-        // Immediately invoked function to set the theme on initial load
-        (function () {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-dark');
-                document.getElementById('slider').checked = false;
-            } else {
-                setTheme('theme-light');
-              document.getElementById('slider').checked = true;
-            }
-        })();
-
-  </script>
   <nav class="navbar navbar-expand-xl navbar  navbar-light " style="
     position:fixed;
     background-color: var(--color-nav);
@@ -482,7 +479,6 @@ if ($r1 == "1") {
 
 </div>
 </nav>
-		  <div id="mainDiv">
 <style>
 .modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
 	    padding-top: 35px;
@@ -780,6 +776,7 @@ a.closearb {
 </div>
 </div>
 </div>
+<div id="mainDiv">
 
 
  </div>
