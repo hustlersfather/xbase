@@ -780,17 +780,19 @@ a.closearb {
 </div>
 </div>
 	
+<!-- Start your project here-->
 <div id="mainDiv">
+	<div class="main-home mt-5 mb-5">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 
-<?php
-if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
-    header("location: ../");
-    exit();
-}
-$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
-	?>
-	
-	
+					<div class="card-header">
+						<?php echo'<i class="fas fa-user-shield">
+						</i>
+						Welcome 
+						<a class="badge badge-pill badge-success">'.$usrid.'</a>
+						<br>
  </div>
     </div>
     <!-- Footer Links -->
