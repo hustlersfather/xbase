@@ -61,6 +61,10 @@ table.floatThead-table {
   .dropdown:hover .dropdown-menu {
     display: block;
   }
+.navbar-nav .dropdown-menu
+    {
+      margin:0 !important
+    }
 }
 
 #mydiv {
