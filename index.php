@@ -534,8 +534,8 @@ a.closearb {
 
 </style>
 <body class="them loading">
-<link rel="stylesheet" href="files/css/flexslider5.css" type="text/css">
-<script src="files/js/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="/files/css/flexslider5.css" type="text/css">
+<script src="/files/js/jquery.flexslider-min.js"></script>
 <style>
 #tour {
     font-family: 'Raleway', sans-serif;
@@ -779,8 +779,18 @@ a.closearb {
 </div>
 </div>
 </div>
-<div id="mainDiv">
+<!-- Main content -->
 
+	<div id="mainDiv">
+	
+<div class="main-home mt-5 mb-5">
+<div class="row">
+<div class="col-md-8">
+<div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
+<div class="card-header">
+<i class="fas fa-user-shield"></i>
+Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
+</div>
 
  </div>
     </div>
