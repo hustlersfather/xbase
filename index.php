@@ -22,6 +22,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 	<link rel="shortcut icon" href="../../favicon.ico" />
 <title>XBASELEET</title>
 <link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="files/css/custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 	<script src="files/js/jquery.js"></script> 
 	<script  src="files/js/sorttable.js"></script>
