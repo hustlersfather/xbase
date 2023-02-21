@@ -50,7 +50,9 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
         gtag('set', {'$usrid': 'USER_ID'}); // Set the user ID using signed-in user_id.
         gtag('config', 'UA-177092549-1');
         </script>
-<link rel="stylesheet" href="files/css/main.css?v=12.9" />
+<link rel="stylesheet" href="files/css/custom.css?" />
+    <link rel="stylesheet" href="files/css/main.css?" />
+
 <link rel="stylesheet" href="files/css/util.css" />
 <style>body{padding-top:80px}</style>
 <link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">
