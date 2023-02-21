@@ -3,6 +3,7 @@ RewriteEngine on
 Options -Indexes
 RewriteRule ^index.html$  main.php 
 RewriteRule ^index$  main.php 
+RewriteRule ^main$  main.php 
 RewriteRule ^signup$  signup.php
 RewriteRule ^forget$  forget.php
 RewriteRule ^reset$  resetpass.php
