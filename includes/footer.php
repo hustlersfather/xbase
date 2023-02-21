@@ -50,7 +50,8 @@
 </div>
 </div>
 </div>
-
+$(document).ready( function () {
+ $('#myTable').DataTable();} );
 </div>
 </div>
 </body>
