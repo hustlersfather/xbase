@@ -510,4 +510,4 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 });
 </script>
 </table>
-include "includes/footer.php";?>
+<?php include "includes/footer.php";?>
