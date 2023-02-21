@@ -1,4 +1,31 @@
 <?php
-echo "";
+
+ob_start();
+@session_start();
+date_default_timezone_set('UTC');
+ include "../includes/config.php";
+
+if(!isset($_SESSION['sname']) and !isset($_SESSION['spass'])){
+   header("location: ../");
+   exit();
+}
+
+$uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+$q = mysqli_query($dbcon,"SELECT * FROM users WHERE username='$uid'")or die();
+$r = mysqli_fetch_assoc($q);
+
+if($r['resseller'] != "1"){
+  header("location: ../../");
+  exit ();
+}
 
 ?>
+
+
+
+      <div class="well well-sm">
+Hello <span class="label label-primary"> <?php echo $uid;?></span><br>
+If you have any <b> Question</b> , <b>Suggestion</b> or <b>Request Please</b> feel free to <a class="label label-default" href="../buyer/tickets.html"><span class="glyphicon glyphicon-pencil"></span> Open Ticket</a>
+<br>
+
+<h4>Your information <small><?echo $uid;?></small> </h4>
