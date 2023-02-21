@@ -32,9 +32,6 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <script src="files/bootstrap/3/js/bootstrap.min.js"></script>
 <script src="files/js/bootbox.min.js"></script>
 <link rel="stylesheet" type="text/css" href="files/css/flags.css" />
-    
-    
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
@@ -290,6 +287,10 @@ Hosts
         </li>
                       
       </ul>
+       </ul>
+        </li>
+                      
+      </ul>
       <ul class="nav navbar-nav navbar-right">
                         <?php
 $uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
@@ -301,7 +302,7 @@ if ($reselerif == "1") {
     $q = mysqli_query($dbcon, "SELECT soldb FROM resseller WHERE username='$uid'") or die(mysqli_error());
     $r = mysqli_fetch_assoc($q);
 
-    echo '<li><a href="../seller/index.html"><span class="badge" title="Seller Panel"><span class="glyphicon glyphicon-cloud"></span><span id="seller"></span></span></a></li>';
+    echo '<li><a href="https://jerux.to/seller/index.html"><span class="badge" title="Seller Panel"><span class="glyphicon glyphicon-cloud"></span><span id="seller"></span></span></a></li>';
 } else {
 } ?>      
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tickets <span id="alltickets">
@@ -314,14 +315,14 @@ if ($r844941 == "1") {
 ?>
 </span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="tickets.html" onclick="pageDiv(11,'Tickets - FeluxShop','tickets.html',0); return false;">Tickets <span class="label label-info"><span id="tickets"></span></span><?php
+            <li><a href="tickets.html" onclick="pageDiv(11,'Tickets - JeruxShop','tickets.html',0); return false;">Tickets <span class="label label-info"><span id="tickets"></span></span>	<?php
 $s1 = mysqli_query($dbcon, "SELECT * FROM ticket WHERE uid='$uid' and seen='1'");
 $r1 = mysqli_num_rows($s1);
 if ($r1 == "1") {
     echo '<span class="label label-success"> 1 New</span>';
 }
 ?></span></a></li>
-            <li><a href="reportsl" onclick="pageDiv(12,'Reports - FeluxShop','reports.html',0); return false;">Reports <span class="label label-info"><span id="reports"></span></span> <?php
+            <li><a href="reports.html" onclick="pageDiv(12,'Reports - JeruxShop','reports.html',0); return false;">Reports <span class="label label-info"><span id="reports"></span></span> <?php
 $s1 = mysqli_query($dbcon, "SELECT * FROM reports WHERE uid='$uid' and seen='1'");
 $r1 = mysqli_num_rows($s1);
 if ($r1 == "1") {
@@ -331,7 +332,6 @@ if ($r1 == "1") {
 
            </ul>
         </li>
-
 <li class="nav-item">
 <a class="nav-link" href="addBalancel" style="color: var(--font-color);" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">
 <b><span id="balance"></span></b>
