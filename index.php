@@ -18,18 +18,21 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <meta name="alfacoins-site-verification" content="">
 <meta name="revisit-after" content="2 days">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="/cdn-cgi/apps/head/5OOZijtrf_Bpx-OYIJIWKuxGuQM.js"></script>
 	<link rel="shortcut icon" href="../../favicon.ico" />
 <title>XBASELEET</title>
 <link rel="stylesheet" href="files/bootstrap/3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="files/css/custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 	<script src="files/js/jquery.js"></script> 
+	<script  src="files/js/sorttable.js"></script>
+	<script src="files/js/table-head.js"></script>
 <script src="files/js/jquery-3.4.1.min.js"></script>
 <script src="files/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="files/bootstrap/3/js/bootstrap.min.js"></script>
 <script src="files/js/bootbox.min.js"></script>
 <link rel="stylesheet" type="text/css" href="files/css/flags.css" />
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
@@ -40,7 +43,16 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 <script src="js/jquery.dataTables.min.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-<link rel="stylesheet" href="files/css/main.css" />
+
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-177092549-1"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('set', {'$usrid': 'USER_ID'}); // Set the user ID using signed-in user_id.
+        gtag('config', 'UA-177092549-1');
+        </script>
+<link rel="stylesheet" href="files/css/main.css?v=12.9" />
 <link rel="stylesheet" href="files/css/util.css" />
 <style>body{padding-top:80px}</style>
 <link rel="stylesheet" href="files/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -218,7 +230,103 @@ input:checked + .slider:before {
 
   </script>
 	<script type="text/javascript">
-          
+             function ajaxinfo() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'ajaxinfo.html',
+                    timeout: 10000,
+
+                    success: function(data) {
+                        if (data != '01') {
+                            var data = JSON.parse(data);
+                            for (var prop in data) {
+                                $("#" + prop).html(data[prop]).show();
+                            }
+                        } else {
+                            window.location = "logout.html";
+                        }
+                    }
+                });
+
+            }
+            setInterval(function() {
+                ajaxinfo()
+            }, 3000);
+
+            ajaxinfo();
+
+$(document).keydown(function(event){
+    if(event.which=="17")
+        cntrlIsPressed = true;
+});
+
+$(document).keyup(function(){
+    cntrlIsPressed = false;
+});
+
+var cntrlIsPressed = false;
+
+
+function pageDiv(n,t,u,x){
+  if(cntrlIsPressed){
+    window.open(u, '_blank');
+    return false;
+  }
+        var obj = { Title: t, Url: u };
+        if ( ("/"+obj.Url) != location.pathname) {
+        	if (x != 1) {history.pushState(obj, obj.Title, obj.Url);}
+        	else{history.replaceState(obj, obj.Title, obj.Url);}
+
+    	}
+      document.title = obj.Title;
+    $("#mainDiv").html('<div id="mydiv"><img src="files/img/load2.gif" class="ajax-loader"></div>').show();
+    $.ajax({
+    type:       'GET',
+    url:        'divPage'+n+'.html',
+    success:    function(data)
+    {
+        $("#mainDiv").html(data).show();
+        newTableObject = document.getElementById('table');
+        sorttable.makeSortable(newTableObject);
+        $(".sticky-header").floatThead({top:60});
+        if(x==0){ajaxinfo();}
+      }});
+    if (typeof stopCheckBTC === 'function') { 
+    var a = stopCheckBTC();
+     }
+
+}
+
+$(window).on("popstate", function(e) {
+        location.replace(document.location);
+
+});
+
+
+$(window).on('load', function() {
+$('.dropdown').hover(function(){ $('.dropdown-toggle', this).trigger('click'); });
+   pageDiv(0,'Main - JeruxShop','main',1);
+   var clipboard = new Clipboard('.copyit');
+    clipboard.on('success', function(e) {
+      setTooltip(e.trigger, 'Copied!');
+      hideTooltip(e.trigger);
+      e.clearSelection();
+   });
+
+});
+
+
+function setTooltip(btn, message) {
+  console.log("hide-1");
+  $(btn).tooltip('hide')
+    .attr('data-original-title', message)
+    .tooltip('show');
+     console.log("show");
+}
+
+function hideTooltip(btn) {
+  setTimeout(function() {$(btn).tooltip('hide'); console.log("hide-2");}, 1000);
+}
 </script>
 	<nav class="navbar navbar-expand-xl navbar  navbar-light " style="
                                                           position:fixed;
@@ -242,93 +350,65 @@ input:checked + .slider:before {
 <div class="collapse navbar-collapse order-1" id="navbarSupportedContent">
 <ul class="navbar-nav mr-auto">
 
-
-
-
-
 <li class="nav-item dropdown mr-auto">
 <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-warehouse fa-sm orange-text"></i>
 Hosts
 </a>
-
-
- <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby=,avbarDropdo>a
-          < class="dropdown-item" href="rdp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-desktop fa-fw"></i> RDPs <span class="badge badge-primary"><span id="rdp"></span></span></a>
+     <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="rdp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-desktop fa-fw"></i> RDPs <span class="badge badge-primary"><span id="rdp"></span></span></a>
           <a class="dropdown-item" href="cPanel" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-tools fa-fw"></i> cPanels <span class="badge badge-primary"><span id="cpanel"></span></span></a>
           <a class="dropdown-item" href="shell" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-file-code fa-fw"></i> Shells <span class="badge badge-primary"><span id="shell"></span></span></a>
         </div>
       </li>
-
-
-
-
-
-
        <li class="nav-item dropdown mr-auto">
         <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-google-play fa-sm text-success"></i>
           Send
         </a>
-
-
-
-
-
         <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="mailer" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-leaf fa-fw"></i> Mailers <span class="badge badge-primary"><span id="mailer"></span></span></a>
           <a class="dropdown-item" href="smtp" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-envelope fa-fw"></i> SMTPs <span class="badge badge-primary"><span id="smtp"></span></span></a>
         </div>
       </li>
       
-
-
-
-
-
       <li class="nav-item dropdown mr-auto">
-        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-mail-bulk fa-sm pink-color">
-          
-        </i> 
+        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-mail-bulk fa-sm pink-color"></i> 
           Leads
         </a>
-
-
-
         <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="leads" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-award"></i> 100% Validated Leads <span class="badge badge-primary"><span id="leads"></span></span></a>
           </div>
       </li>
 
-          <li class="nav-item dropdown mr-auto">
-        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Accounts
+  <li class="nav-item dropdown mr-auto">
+        <a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Bank logs(full info)
         </a>
         <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="accounts" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i>Premium/dating/shop <span class="badge badge-primary"><span id="premium"></span></span></a>
           <a class="dropdown-item" href="banks" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i>Banks logs <span class="badge badge-primary"><span id="banks"></span></span></a>
         
-
-
-
-
 	<li class="nav-item dropdown mr-auto">
-<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Other
-
+<a class="nav-link dropdown-toggle" style="color: var(--font-color);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie fa-sm"></i> Tutorial/Script/Methods
+</a>
 <div class="dropdown-menu dropdown-menu-left" style="color: var(--font-color); background-color: var(--color-nav);" aria-labelledby="navbarDropdown">
 <a class="dropdown-item" href="Scampage" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-business-time"></i> Scmpage <span class="badge badge-primary"><span id="scampage"></span></span></a>
-<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Tutorials<span class="badge badge-primary"><span id="tutorial"></span></a>
+<a class="dropdown-item" href="tutorials" style="color: var(--font-color);"><span class="px-2"><i class="fas fa-mail-bulk"></i> Banks Cashout Tutorials <span class="badge badge-primary"><span id="tutorial"></span></a>
 	</li>  
           </ul>
         </li>
                       
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
                         <?php
-$uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']); $q = mysqli_query($dbcon, "SELECT resseller FROM users WHERE username='$uid'") or die(mysqli_error());$r         = mysqli_fetch_assoc($q);
-]    $uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+$uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+$q = mysqli_query($dbcon, "SELECT resseller FROM users WHERE username='$uid'") or die(mysqli_error());
+$r         = mysqli_fetch_assoc($q);
+$reselerif = $r['resseller'];
+if ($reselerif == "1") {
+    $uid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
     $q = mysqli_query($dbcon, "SELECT soldb FROM resseller WHERE username='$uid'") or die(mysqli_error());
-    $r = mysqli_fetch_assoc($q);echo '<li><a href="seller/index.html"><span class=fa fa "user-circle" title="Seller Panel">
-    <span class="fa fa-circler">
-   </span><span id="seller"></span></span></a></li>';
+    $r = mysqli_fetch_assoc($q);
+
+    echo '<li><a href="seller/index.html"><span class="badge" title="Seller Panel"><span class="glyphicon glyphicon-cloud"></span><span id="seller"></span></span></a></li>';
 } else {
 } ?>      
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tickets <span id="alltickets">
@@ -352,7 +432,7 @@ if ($r1 == "1") {
 $s1 = mysqli_query($dbcon, "SELECT * FROM reports WHERE uid='$uid' and seen='1'");
 $r1 = mysqli_num_rows($s1);
 if ($r1 == "1") {
-    echo '<span class="label badg-success"> 1 New</span>';
+    echo '<span class="label label-success"> 1 New</span>';
 }
 ?></span> </a></li>
 
@@ -360,7 +440,7 @@ if ($r1 == "1") {
         </li>
 
 <li class="nav-item">
-<a class="nav-link" href="addBalance" style="color: var(--font-color);" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">
+<a class="nav-link" href="addBalance.html" style="color: var(--font-color);" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">
 <b><span id="balance"></span></b>
 <span class="px-2"><i class="fa fa-plus"></i></span></span>
 </a>
@@ -521,7 +601,7 @@ a.closearb {
 </div>
 </div>
 </div>
-my
+
 </div>
 </div>
 
@@ -603,9 +683,8 @@ my
 <div class="row">
 <div class="col-md-10">
 <h5 class="card-title text-uppercase text-muted mb-0">Balance</h5>
-<span class="h2 font-weight-bold mb-0"><b><span id="balance"></span></b>
-<span class="px-2">
-</div>
+<span class="h2 font-weight-bold mb-0">
+<?php echo'<span id="balance">'</div>'; ?>
 <div class="col-md-2">
 <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
 <i class="fa fa-money-bill-alt "></i>
@@ -675,44 +754,325 @@ my
 <span class="text-nowrap"><a href="reports"> [ Show ]</a></span>
 </p>
 </div>
+</div>
+</div>
+</div>
+</div>
+	
+	
+<!----------------start--------------------------->
 
-
-
+	
 <?php
- echo'<div class="main-home mt-5 mb-5">
+ echo'
+<div class="main-home mt-5 mb-5">
 <div class="row">
-  
 <div class="col-md-8">
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
-<div class="card-header">
-<i class="fas fa-user-shield"></i>
-Welcome <a class="badge badge-pill badge-success">'.$usrid.'</a><br>
-</div>
-<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
-<br>
-If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
-<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
-<br>
-if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
-<br>
-Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>odin.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
-<br>
-<a href="https://odinshop.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<div class="card-header"><i class="fas fa-user-shield"></i>Welcome <a class="badge badge-pill badge-success">'.$usrid.'</a>
 <br>
 </div>
-  </div>'; ?>
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);"><br>If you have any Question ,Problem, Suggestion or Request Please feel free to Open a <a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+<br>if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
+<br>Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> || <strong>xbaseleet.pw</strong> || <strong>odinshop.se</strong> || <strong>odin.pm</strong> ||</span><strong><span style="color: #ff0000;">Tor Mirror odinshoyi3y5clejn3klyggxrmq5sy5efdiremz353z6ucdujgdiccad.onion ||</span> </strong></p> - Please Save them!
+<br><a href="https://xbaseleet.se/Tos.php" data-title="Terms Of Service " class="btn btn-primary btn-sm"> Terms Of Service <i class="fa fa-newspaper-o"></i></a>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>'; 
+?>
+
+	<?php
+	echo '
+                 
+      </div>
+  </div>
+'; ?>
+<!----------------start--------------------------->
+	<?php
+  $date = date("m-d-y");
+  $qt = mysqli_query($dbcon, "SELECT * FROM users");
+  $qtf = mysqli_num_rows($qt);
+    $qtc = mysqli_query($dbcon, "SELECT * FROM ticket WHERE status='1' or status='2'");
+  $qtfc = mysqli_num_rows($qtc);
+    $qtcz = mysqli_query($dbcon, "SELECT * FROM reports WHERE status='1' or status='2'");
+  $qtfec = mysqli_num_rows($qtcz);
+     $qtczb = mysqli_query($dbcon, "SELECT * FROM resseller");
+  $qtfec8 = mysqli_num_rows($qtczb);
+?>	
+<div class="alert alert-danger fade in radius-bordered alert-shadowed"><b>Jerux Shop</b></div>
+<div class="form-group col-lg-3">
+		<div class="teddy-text">
+<center>	<b><font size="4" color="17C0FB">
+<span class="glyphicon glyphicon-time" style="font-size: 55px;"></span><br><h3><?php echo $qtfc;?></h3>
+</font> </CENTER></b>
+					</div>
+			    <div class="teddy-follow">
+<center>	<b><font size="4" color="white">Pending Tickets</font> </CENTER></b>
+			    </div>
+
+</div>
+<div class="form-group col-lg-3">
+		<div class="teddy-text">
+<center>	<b><font size="4" color="17C0FB">
+<span class="glyphicon glyphicon-time" style="font-size: 55px;"></span><br><h3><?php echo $qtfec; ?></h3>
+</font> </CENTER></b>
+					</div>
+			    <div class="teddy-follow">
+<center>	<b><font size="4" color="white">Pending Reports</font> </CENTER></b>
+			    </div>
+
+</div>
+<div class="form-group col-lg-3">
+		<div class="teddy-text">
+<center>	<b><font size="4" color="D41010">
+<span class="glyphicon glyphicon-user" style="font-size: 55px;"></span><br><h3><?php echo $qtf;?>+</h3>
+</font> </CENTER></b>
+					</div>
+			    <div class="teddy-followred">
+<center>	<b><font size="4" color="white">Users</font> </CENTER></b>
+			    </div>
+
+</div>
+<div class="form-group col-lg-3">
+		<div class="teddy-text">
+<center>	<b><font size="4" color="D41010">
+<span class="glyphicon glyphicon-fire" style="font-size: 55px;"></span><br><h3><?php echo $qtfec8; ?></h3>
+</font> </CENTER></b>
+					</div>
+			    <div class="teddy-followred">
+<center>	<b><font size="4" color="white">Sellers</font> </CENTER></b>
+			    </div>
+
+</div>
+<br>
+<div class="form-group col-lg-8">
+<h4>Last Tickets </h4>
+<?php
+  $q = mysqli_query($dbcon, "SELECT * FROM ticket order by id desc Limit 5")or die("error");
+
+    echo '
+     <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>Title</th>
+                  <th>Date Created</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>';
+              while($row = mysqli_fetch_assoc($q)){
+                $st = $row['status'];
+
+    switch ($st){
+      case "0" :
+       $st = "closed";
+       break;
+      case "1" :
+       $st = "pending";
+       break;
+      case "2":
+       $st = "pending";
+       break;
+    }
+		if (empty($row['lastup'])) {
+		$lastup = "n/a"; 
+		} else { 
+		$lastup = $row['lastup']; 	
+		}
+              echo '<tr>
+                  <td>'.$row['id'].'</td>
+                  <td>'.$row['uid'].'</td>
+                  <td>'.$row['subject'].'</td>
+				  <td>'.$row['date'].'</td>
+                  <td><a class="btn btn-primary btn-xs" href="viewt.php?id='.$row['id'].'">View</a></td>
+                  </tr>';
+                  }
+                  echo '
+              </tbody>
+            </table>
+      ';
+    ?>
+</div>
+<div class="form-group col-lg-4">
+<h4>Last Users </h4>
+<?php
+  $q = mysqli_query($dbcon, "SELECT * FROM users order by id desc Limit 5")or die("error");
+
+    echo '
+     <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>';
+              while($row = mysqli_fetch_assoc($q)){
+              echo '<tr>
+                  <td>'.$row['id'].'</td>
+                  <td>'.$row['username'].'</td>
+                  <td>'.$row['datereg'].'</td>
+                  </tr>';
+                  }
+                  echo '
+              </tbody>
+            </table>
+      ';
+    ?>
+</div>
+</div>
+<!------------------------------------------------------------------------>
+<div class="form-group col-lg-6 ">
+
+<?php
 
 
+include "../includes/config.php";
+?>
 
+<center>
+<!------------------------------------------------------------------------>
 
+<!----------------------------------------------------------------------------------->
+<?php
+$bbbyesterday = date('Y-m-d', strtotime('-4 days'));
+$bbyesterday = date('Y-m-d', strtotime('-3 days'));
+$byesterday = date('Y-m-d', strtotime('-2 days'));
+$yesterday = date('Y-m-d', strtotime('-1 days'));
+$today = date('Y-m-d');
+$sql = "SELECT * FROM purchases where date between '$yesterday 00:00:00' and '$today 00:00:00' ORDER BY id DESC";
+		
+$query = mysqli_query($dbcon, $sql);
+  $saleYest=0;
+		while ($row = mysqli_fetch_array($query))
+		{
+			$saleYest += $row['price'];
+		}
+$sql2 = "SELECT * FROM purchases where date between '$byesterday 00:00:00' and '$yesterday 00:00:00' ORDER BY id DESC";
+		
+$query2 = mysqli_query($dbcon, $sql2);
+  $saleByest=0;
+		while ($row = mysqli_fetch_array($query2))
+		{
+			$saleByest += $row['price'];
+		}
+$sql3 = "SELECT * FROM purchases where date between '$bbyesterday 00:00:00' and '$byesterday 00:00:00' ORDER BY id DESC";
+		
+$query3 = mysqli_query($dbcon, $sql3);
+  $saleBByest=0;
+		while ($row = mysqli_fetch_array($query3))
+		{
+			$saleBByest += $row['price'];
+		}
+$sql4 = "SELECT * FROM purchases where date between '$bbbyesterday 00:00:00' and '$bbyesterday 00:00:00' ORDER BY id DESC";
+		
+$query4 = mysqli_query($dbcon, $sql4);
+  $saleBBByest=0;
+		while ($row = mysqli_fetch_array($query4))
+		{
+			$saleBBByest += $row['price'];
+		}
+?>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Sales $'],
+          ['<?php echo date('l', strtotime('-4 days')); ?>',  <?php echo $saleBBByest;?>],
+          ['<?php echo date('l', strtotime('-3 days')); ?>',  <?php echo $saleBByest;?>],
+          ['<?php echo date('l', strtotime('-2 days')); ?>',  <?php echo $saleByest;?>],
+          ['Yesterday',  <?php echo $saleYest;?>],
+        ]);
 
+        var options = {
+          title: 'JeruxSHOP Sales $',
+          vAxis: {minValue: 0},
+		  colors: ['navy','#001f3f'],
+		    animation:{
+	startup: 'True',
+    duration: 1000,
+    easing: 'out',
+  }
+        };
 
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+		
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  </body>
+</html></div>
+<div class="form-group col-lg-6 ">
+<?php
+include "../includes/config.php";
+$bbyesterday = date('m-d-y', strtotime('-3 days'));
+$byesterday = date('m-d-y', strtotime('-2 days'));
+$yesterday = date('m-d-y', strtotime('-1 days'));
+$today = date('m-d-y');
+  $qtoday = mysqli_query($dbcon, "SELECT * FROM users WHERE datereg='$today'");
+  $qtfotoday = mysqli_num_rows($qtoday);
 
+  $qyester = mysqli_query($dbcon, "SELECT * FROM users WHERE datereg='$yesterday'");
+  $qtfoyester = mysqli_num_rows($qyester);
 
+  $qbyest = mysqli_query($dbcon, "SELECT * FROM users WHERE datereg='$byesterday'");
+  $qbyeste = mysqli_num_rows($qbyest);
 
+  $qbbyest = mysqli_query($dbcon, "SELECT * FROM users WHERE datereg='$bbyesterday'");
+  $qtfobbyest = mysqli_num_rows($qbbyest);
+  
 
+?>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'New users'],
+          ['<?php echo date('l', strtotime('-3 days')); ?>',  <?php echo $qtfobbyest;?>],
+          ['<?php echo date('l', strtotime('-2 days')); ?>',  <?php echo $qbyeste;?>],
+          ['Yesterday',  <?php echo $qtfoyester;?>],
+          ['Today',  <?php echo $qtfotoday;?>],
+        ]);
+
+        var options = {
+          title: 'Registered users',
+          vAxis: {minValue: 0},
+		  colors: ['orange','#FFA500'],
+		    animation:{
+	startup: 'True',
+    duration: 1000,
+    easing: 'out',
+  }
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_dive'));
+        chart.draw(data, options);
+		
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_dive" style="width: 100%; height: 500px;"></div>
   </body>
 </html>
 
