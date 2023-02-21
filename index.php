@@ -25,8 +25,6 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
 	<link rel="stylesheet" href="files/css/custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 	<script src="files/js/jquery.js"></script> 
-	<script  src="files/js/sorttable.js"></script>
-	<script src="files/js/table-head.js"></script>
 <script src="files/js/jquery-3.4.1.min.js"></script>
 <script src="files/js/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
