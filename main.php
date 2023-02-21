@@ -784,48 +784,7 @@ if($r['resseller'] != "1"){
 }
 
 ?>
-<div class="well well-sm">
-Hello <span class="label label-primary"> <?php echo $uid;?></span><br>
-If you have any <b> Question</b> , <b>Suggestion</b> or <b>Request Please</b> feel free to <a class="label label-default" href="../buyer/tickets.html"><span class="glyphicon glyphicon-pencil"></span> Open Ticket</a>
-<br>
-
-<h4>Your information <small><?echo $uid;?></small> </h4>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<!----------------start--------------------------->
+----------------start--------------------------->
 
 <div class="main-home mt-5 mb-5">
 <div class="row">
@@ -834,9 +793,8 @@ If you have any <b> Question</b> , <b>Suggestion</b> or <b>Request Please</b> fe
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-user-shield"></i>
-Welcome <a class="badge badge-pill badge-success">hustlersfather</a><br>
-</div>
-<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
+Welcome Back <a class="badge badge-pill badge-success"> <?php echo $uid;?></span><br>
+</div>	<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
 <br>
 If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
 <a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
@@ -850,6 +808,27 @@ Our Domains are <p><span style="color: #ff0000;"><strong>odinshop.io</strong> ||
 </div>
   </div>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-newspaper"></i>
