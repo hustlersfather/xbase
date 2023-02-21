@@ -496,7 +496,7 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
     </table>
 
 
-
+<script>
  $(document).ready(function () {
     $('#example').DataTable({
         autoWidth: false,
@@ -508,5 +508,6 @@ $usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
         ],
     });
 });
+</script>
 </table>
 include "includes/footer.php";?>
