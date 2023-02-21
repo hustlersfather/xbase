@@ -793,11 +793,9 @@ if($r['resseller'] != "1"){
 <div class="card mb-3" style="color: var(--font-color); background-color: var(--color-card);">
 <div class="card-header">
 <i class="fas fa-user-shield"></i>
-Welcome Back <a class="badge badge-pill badge-success"> <?php echo $uid;?></span><br>
-</div>	<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
-<br>
-If you have any Question ,Problem, Suggestion or Request Please feel free to Open a
-<a href="tickets" class="btn btn-success btn-sm"> New Ticket <i class="fa fa-paper-plane"></i></a>
+Welcome Back <a class="badge badge-pill badge-success"> <?php echo $uid;?></a><br>
+</div>	
+<div class="card-body" style="color: var(--font-color); background-color: var(--color-card);">
 <br>
 if you want to report an order , just go to <a class="btn btn-success btn-sm" data-title="My Orders" href="orders"> My Orders <i class="fa fa-shopping-cart"></i></a> then click on Report #[Order Id] button.
 <br>
