@@ -1,6 +1,33 @@
 
-<
+ob_start();
+session_start();
+date_default_timezone_set('UTC');
+include "includes/config.php";
+error_reporting(0);
+if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
+    header("location: login.html");
+    exit();
+}
+$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
+?>
+<?php
 
+echo '
+    <script>
+function sendt(id){
+    var sub = $("#subject").val();
+    var msg = $("#msg").val();
+    var pr = $("#proi"+id).val();
+     $.ajax({
+     method:"GET",
+     url:"CreateTicket.html?s="+btoa(sub)+"&m="+btoa(msg),
+     dataType:"text",
+     success:function(data){
+     $("#resulta").html(data).show();
+     },
+   });
+}
+    </script>
 <style>
 
 .display  td {
