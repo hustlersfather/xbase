@@ -1,565 +1,164 @@
+<?php include('../authentication/security.php'); ?>
+<?php include('../authentication/auth-controller.php'); ?>
+<?php include('includes/header.php'); ?>
 
-<?php
-ob_start();
-session_start();
-date_default_timezone_set('UTC');
-include "includes/header.php";
+        <!--Sidebar-->
+        <div class="col-lg-10">
+            <div class="container-fluid mx-2">
+                <!--Breadcrumbs-->
+                <div class="border-bg mb-2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                            <a href="#" class="text-white">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Post</li>
+                        </ol>
+                    </nav>
+                </div>
+                <!--Breadcrumbs ends-->
 
-if (!isset($_SESSION['sname']) and !isset($_SESSION['spass'])) {
-    header("location: ../");
-    exit();
-}
-$usrid = mysqli_real_escape_string($dbcon, $_SESSION['sname']);
-?>
+                <!--Sb heading-->
+                <div class="border-bg pb-2">
+                    <div class="d-flex justify-content-between align-items-center mx-3">
+                        <h5 class="h5 text-white">Users Page</h5>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#exampleModal">
+                            Add user
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-danger py-3 text-white">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <form action="user.php" method="post">
 
-</head>
+                                        <div class="form-group mt-5">
+                                            <label  class="lead">Username</label>
+                                            <input type="text" name="username" class="form-control py-2 mt-2">
+                                        </div>
 
-</nav>
-<style>.modal-dialog.modal-frame.modal-top.modal-notify.modal-danger .modal-body,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger .modal-body{
-	    padding-top: 35px;
-}
-.modal-dialog.modal-frame.modal-top.modal-notify.modal-danger,.modal-dialog.modal-frame.modal-top.modal-offernov.modal-danger {
-    max-width: 500px !important;
-    margin: 1.75rem auto !important;
-    position: relative;
-    width: auto !important;
-    pointer-events: none;
-}
-a.closearb {
-    position: absolute;
-    top: 2.5px;
-    right: 2.5px;
-    display: block;
-    width: 30px;
-    height: 30px;
-    text-indent: -9999px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAA3hJREFUaAXlm8+K00Acx7MiCIJH/yw+gA9g25O49SL4AO3Bp1jw5NvktC+wF88qevK4BU97EmzxUBCEolK/n5gp3W6TTJPfpNPNF37MNsl85/vN/DaTmU6PknC4K+pniqeKJ3k8UnkvDxXJzzy+q/yaxxeVHxW/FNHjgRSeKt4rFoplzaAuHHDBGR2eS9G54reirsmienDCTRt7xwsp+KAoEmt9nLaGitZxrBbPFNaGfPloGw2t4JVamSt8xYW6Dg1oCYo3Yv+rCGViV160oMkcd8SYKnYV1Nb1aEOjCe6L5ZOiLfF120EjWhuBu3YIZt1NQmujnk5F4MgOpURzLfAwOBSTmzp3fpDxuI/pabxpqOoz2r2HLAb0GMbZKlNV5/Hg9XJypguryA7lPF5KMdTZQzHjqxNPhWhzIuAruOl1eNqKEx1tSh5rfbxdw7mOxCq4qS68ZTjKS1YVvilu559vWvFHhh4rZrdyZ69Vmpgdj8fJbDZLJpNJ0uv1cnr/gjrUhQMuI+ANjyuwftQ0bbL6Erp0mM/ny8Fg4M3LtdRxgMtKl3jwmIHVxYXChFy94/Rmpa/pTbNUhstKV+4Rr8lLQ9KlUvJKLyG8yvQ2s9SBy1Jb7jV5a0yapfF6apaZLjLLcWtd4sNrmJUMHyM+1xibTjH82Zh01TNlhsrOhdKTe00uAzZQmN6+KW+sDa/JD2PSVQ873m29yf+1Q9VDzfEYlHi1G5LKBBWZbtEsHbFwb1oYDwr1ZiF/2bnCSg1OBE/pfr9/bWx26UxJL3ONPISOLKUvQza0LZUxSKyjpdTGa/vDEr25rddbMM0Q3O6Lx3rqFvU+x6UrRKQY7tyrZecmD9FODy8uLizTmilwNj0kraNcAJhOp5aGVwsAGD5VmJBrWWbJSgWT9zrzWepQF47RaGSiKfeGx6Szi3gzmX/HHbihwBser4B9UJYpFBNX4R6vTn3VQnez0SymnrHQMsRYGTr1dSk34ljRqS/EMd2pLQ8YBp3a1PLfcqCpo8gtHkZFHKkTX6fs3MY0blKnth66rKCnU0VRGu37ONrQaA4eZDFtWAu2fXj9zjFkxTBOo8F7t926gTp/83Kyzzcy2kZD6xiqxTYnHLRFm3vHiRSwNSjkz3hoIzo8lCKWUlg/YtGs7tObunDAZfpDLbfEI15zsEIY3U/x/gHHc/G1zltnAgAAAABJRU5ErkJggg==);
-}
-</style> <div class="d-flex flex-row-reverse mt-0">
-<div class="p-2">
-<label id="switch" class="switch">
-<input type="checkbox" onchange="toggleTheme()" id="slider">
-<span class="slider round">
-</span>
-</label>
-</div>
-</div>
-<div class="alert alert-info text-left" role="alert" style="margin: 15px;">
-<ul>
-<li>We Have Fresh E-mails Lists for Diffrents Countries ( You Can Use it for Spam ). </li>
-<li>Our E-mails Lists Guarante for you Good results because most of them are from Shops and Big Sites .</li>
-<li>Combo use for cracking (Brute forcing attack) not use for login to email.</li>
-<li>There is <b> 111 </b> Available.</li>
-</ul>
-</div>
+                                        <div class="form-group mt-5">
+                                            <label class="lead">Email</label>
+                                            <input type="email" name="email"  class="form-control py-2 mt-2" >
+                                        </div>
 
-<div class="row m-2 pt-3 " style="max-width:100%; color: var(--font-color); background-color: var(--color-card);">
-<div class="col-sm-12 table-responsive">
+                                        <div class="form-group mt-5">
+                                            <label class="lead">Password</label>
+                                            <input type="password"  class="form-control py-2 mt-2" name="password">
+                                        </div>
 
-<?php
-$query = mysqli_query($dbcon, "SELECT DISTINCT(`country`) FROM `leads` WHERE `sold` = '0' ORDER BY country ASC");
-	while($row = mysqli_fetch_assoc($query)){
-	echo '<option value="'.$row['country'].'">'.$row['country'].'</option>';
-	}
-?>
+                                        <div class="form-group mt-5">
+                                            <input type="hidden"  class="form-control py-2 mt-2" name="usertype" value="user">
+                                        </div>
+                                                                            
+                                        <div class="d-flex justify-content-start align-items-center mt-4">
+                                            <button type="submit" name="add_user" class="btn btn-lg btn-success">Save</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Sb heading ends-->
 
-<table id="lead_data" class="display responsive table-hover" style="width:100%; color: var(--font-color); background-color: var(--color-card);">
-    <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-               
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>  <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012-03-29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008-11-28</td>
-                <td>$162,700</td>
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2012-12-02</td>
-                <td>$372,000</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td>59</td>
-                <td>2012-08-06</td>
-                <td>$137,500</td>
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                <td>55</td>
-                <td>2010-10-14</td>
-                <td>$327,900</td>
-            </tr>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                <td>39</td>
-                <td>2009-09-15</td>
-                <td>$205,500</td>
-            </tr>
-            <tr>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-                <td>Edinburgh</td>
-                <td>23</td>
-                <td>2008-12-13</td>
-                <td>$103,600</td>
-            </tr>
-            <tr>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>30</td>
-                <td>2008-12-19</td>
-                <td>$90,560</td>
-            </tr>
-            <tr>
-                <td>Quinn Flynn</td>
-                <td>Support Lead</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2013-03-03</td>
-                <td>$342,000</td>
-            </tr>
-            <tr>
-                <td>Charde Marshall</td>
-                <td>Regional Director</td>
-                <td>San Francisco</td>
-                <td>36</td>
-                <td>2008-10-16</td>
-                <td>$470,600</td>
-            </tr>
-            <tr>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-                <td>London</td>
-                <td>43</td>
-                <td>2012-12-18</td>
-                <td>$313,500</td>
-            </tr>
-            <tr>
-                <td>Tatyana Fitzpatrick</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>19</td>
-                <td>2010-03-17</td>
-                <td>$385,750</td>
-            </tr>
-            <tr>
-                <td>Michael Silva</td>
-                <td>Marketing Designer</td>
-                <td>London</td>
-                <td>66</td>
-                <td>2012-11-27</td>
-                <td>$198,500</td>
-            </tr>
-            <tr>
-                <td>Paul Byrd</td>
-                <td>Chief Financial Officer (CFO)</td>
-                <td>New York</td>
-                <td>64</td>
-                <td>2010-06-09</td>
-                <td>$725,000</td>
-            </tr>
-            <tr>
-                <td>Gloria Little</td>
-                <td>Systems Administrator</td>
-                <td>New York</td>
-                <td>59</td>
-                <td>2009-04-10</td>
-                <td>$237,500</td>
-            </tr>
-            <tr>
-                <td>Bradley Greer</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>41</td>
-                <td>2012-10-13</td>
-                <td>$132,000</td>
-            </tr>
-            <tr>
-                <td>Dai Rios</td>
-                <td>Personnel Lead</td>
-                <td>Edinburgh</td>
-                <td>35</td>
-                <td>2012-09-26</td>
-                <td>$217,500</td>
-            </tr>
-            <tr>
-                <td>Jenette Caldwell</td>
-                <td>Development Lead</td>
-                <td>New York</td>
-                <td>30</td>
-                <td>2011-09-03</td>
-                <td>$345,000</td>
-            </tr>
-            <tr>
-                <td>Yuri Berry</td>
-                <td>Chief Marketing Officer (CMO)</td>
-                <td>New York</td>
-                <td>40</td>
-                <td>2009-06-25</td>
-                <td>$675,000</td>
-            </tr>
-            <tr>
-                <td>Caesar Vance</td>
-                <td>Pre-Sales Support</td>
-                <td>New York</td>
-                <td>21</td>
-                <td>2011-12-12</td>
-                <td>$106,450</td>
-            </tr>
-            <tr>
-                <td>Doris Wilder</td>
-                <td>Sales Assistant</td>
-                <td>Sydney</td>
-                <td>23</td>
-                <td>2010-09-20</td>
-                <td>$85,600</td>
-            </tr>
-            <tr>
-                <td>Angelica Ramos</td>
-                <td>Chief Executive Officer (CEO)</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2009-10-09</td>
-                <td>$1,200,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Joyce</td>
-                <td>Developer</td>
-                <td>Edinburgh</td>
-                <td>42</td>
-                <td>2010-12-22</td>
-                <td>$92,575</td>
-            </tr>
-            <tr>
-                <td>Jennifer Chang</td>
-                <td>Regional Director</td>
-                <td>Singapore</td>
-                <td>28</td>
-                <td>2010-11-14</td>
-                <td>$357,650</td>
-            </tr>
-            <tr>
-                <td>Brenden Wagner</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>28</td>
-                <td>2011-06-07</td>
-                <td>$206,850</td>
-            </tr>
-            <tr>
-                <td>Fiona Green</td>
-                <td>Chief Operating Officer (COO)</td>
-                <td>San Francisco</td>
-                <td>48</td>
-                <td>2010-03-11</td>
-                <td>$850,000</td>
-            </tr>
-            <tr>
-                <td>Shou Itou</td>
-                <td>Regional Marketing</td>
-                <td>Tokyo</td>
-                <td>20</td>
-                <td>2011-08-14</td>
-                <td>$163,000</td>
-            </tr>
-            <tr>
-                <td>Michelle House</td>
-                <td>Integration Specialist</td>
-                <td>Sydney</td>
-                <td>37</td>
-                <td>2011-06-02</td>
-                <td>$95,400</td>
-            </tr>
-            <tr>
-                <td>Suki Burks</td>
-                <td>Developer</td>
-                <td>London</td>
-                <td>53</td>
-                <td>2009-10-22</td>
-                <td>$114,500</td>
-            </tr>
-            <tr>
-                <td>Prescott Bartlett</td>
-                <td>Technical Author</td>
-                <td>London</td>
-                <td>27</td>
-                <td>2011-05-07</td>
-                <td>$145,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Cortez</td>
-                <td>Team Leader</td>
-                <td>San Francisco</td>
-                <td>22</td>
-                <td>2008-10-26</td>
-                <td>$235,500</td>
-            </tr>
-            <tr>
-                <td>Martena Mccray</td>
-                <td>Post-Sales support</td>
-                <td>Edinburgh</td>
-                <td>46</td>
-                <td>2011-03-09</td>
-                <td>$324,050</td>
-            </tr>
-            <tr>
-                <td>Unity Butler</td>
-                <td>Marketing Designer</td>
-                <td>San Francisco</td>
-                <td>47</td>
-                <td>2009-12-09</td>
-                <td>$85,675</td>
-            </tr>
-            <tr>
-                <td>Howard Hatfield</td>
-                <td>Office Manager</td>
-                <td>San Francisco</td>
-                <td>51</td>
-                <td>2008-12-16</td>
-                <td>$164,500</td>
-            </tr>
-            <tr>
-                <td>Hope Fuentes</td>
-                <td>Secretary</td>
-                <td>San Francisco</td>
-                <td>41</td>
-                <td>2010-02-12</td>
-                <td>$109,850</td>
-            </tr>
-            <tr>
-                <td>Vivian Harrell</td>
-                <td>Financial Controller</td>
-                <td>San Francisco</td>
-                <td>62</td>
-                <td>2009-02-14</td>
-                <td>$452,500</td>
-            </tr>
-            <tr>
-                <td>Timothy Mooney</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>37</td>
-                <td>2008-12-11</td>
-                <td>$136,200</td>
-            </tr>
-            <tr>
-                <td>Jackson Bradshaw</td>
-                <td>Director</td>
-                <td>New York</td>
-                <td>65</td>
-                <td>2008-09-26</td>
-                <td>$645,750</td>
-            </tr>
-            <tr>
-                <td>Olivia Liang</td>
-                <td>Support Engineer</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2011-02-03</td>
-                <td>$234,500</td>
-            </tr>
-            <tr>
-                <td>Bruno Nash</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>38</td>
-                <td>2011-05-03</td>
-                <td>$163,500</td>
-            </tr>
-            <tr>
-                <td>Sakura Yamamoto</td>
-                <td>Support Engineer</td>
-                <td>Tokyo</td>
-                <td>37</td>
-                <td>2009-08-19</td>
-                <td>$139,575</td>
-            </tr>
-            <tr>
-                <td>Thor Walton</td>
-                <td>Developer</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2013-08-11</td>
-                <td>$98,540</td>
-            </tr>
-            <tr>
-                <td>Finn Camacho</td>
-                <td>Support Engineer</td>
-                <td>San Francisco</td>
-                <td>47</td>
-                <td>2009-07-07</td>
-                <td>$87,500</td>
-            </tr>
-            <tr>
-                <td>Serge Baldwin</td>
-                <td>Data Coordinator</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2012-04-09</td>
-                <td>$138,575</td>
-            </tr>
-            <tr>
-                <td>Zenaida Frank</td>
-                <td>Software Engineer</td>
-                <td>New York</td>
-                <td>63</td>
-                <td>2010-01-04</td>
-                <td>$125,250</td>
-            </tr>
-            <tr>
-                <td>Zorita Serrano</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>56</td>
-                <td>2012-06-01</td>
-                <td>$115,000</td>
-            </tr>
-            <tr>
-                <td>Jennifer Acosta</td>
-                <td>Junior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>43</td>
-                <td>2013-02-01</td>
-                <td>$75,650</td>
-            </tr>
-            <tr>
-                <td>Cara Stevens</td>
-                <td>Sales Assistant</td>
-                <td>New York</td>
-                <td>46</td>
-                <td>2011-12-06</td>
-                <td>$145,600</td>
-            </tr>
-            <tr>
-                <td>Hermione Butler</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2011-03-21</td>
-                <td>$356,250</td>
-            </tr>
-            <tr>
-                <td>Lael Greer</td>
-                <td>Systems Administrator</td>
-                <td>London</td>
-                <td>21</td>
-                <td>2009-02-27</td>
-                <td>$103,500</td>
-            </tr>
-            <tr>
-                <td>Jonas Alexander</td>
-                <td>Developer</td>
-                <td>San Francisco</td>
-                <td>30</td>
-                <td>2010-07-14</td>
-                <td>$86,500</td>
-            </tr>
-            <tr>
-                <td>Shad Decker</td>
-                <td>Regional Director</td>
-                <td>Edinburgh</td>
-                <td>51</td>
-                <td>2008-11-13</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Michael Bruce</td>
-                <td>Javascript Developer</td>
-                <td>Singapore</td>
-                <td>29</td>
-                <td>2011-06-27</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <td>$112,000</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
+                <!--search form-->
+                <div class="float-right mt-2">
+                    <form action="">
+                        <label for="search" class="text-white h6">Search:</label>
+                        <input type="text" class="py-1 rounded">
+                    </form>
+                </div>
+                <!--search form ends-->
 
+                <!--Post Table-->
+                <div class="table-responsive">
+                  <div class="table-card rounded">
+                    <div class="card-head rounded">
+                        <h5 class="h5">All Users</h5>
+                    </div>
+                      <?php
+                        include('../authentication/dbconfig.php'); 
+                          $query = "SELECT * FROM user WHERE usertype='user' ";
+                          $results = mysqli_query($db, $query);
+                      ?>
+                          <table id="example" class="table table-striped mt-4" style="100%">
+                            <thead>
+                              <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Username</th>
+                                  <th scope="col">Email</th>
+                                  <th scope="col">Password</th>
+                                  <th scope="col">Balance</th>
+                                  <th scope="col">Edit</th>
+                                  <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                              if(mysqli_num_rows($results) > 0)
+                              {
+                                while($row = mysqli_fetch_assoc($results))
+                                {
+                                  ?>
+                                  <tr>
+                                    <td> <?php echo $row['id']; ?> </td>
+                                    <td> <?php echo $row['username']; ?> </td>
+                                    <td> <?php echo $row['email']; ?> </td>
+                                    <td> <?php echo $row['password']; ?> </td>
+                                    td> <?php echo $row['balance']; ?> </td>
+                                    <td>
+                                        <form action="edit_user.php" method="post">
+en" name="edit_id" value="<?php echo $row['id']; ?>">
+                                            <button class="btn btn-success" type="submit" name="edit_btn">
+                                            Edit
+                                            </button>
+                                        </form>
+                                    </td> 
+                                    <td>
+                                        <form action="../authentication/auth-controller.php" method="post">
+                                        <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                            <button class="btn btn-danger" name="delete_btn">
+                                            Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                  </tr>
+                                  <?php
 
-<script>
- $(document).ready(function () {
-    $('#example').DataTable({
-        autoWidth: false,
-        columnDefs: [
-            {
-                targets: ['_all'],
-                className: 'mdc-data-table__cell',
-            },
-        ],
-    });
-});
-</script>
-</table>
-<?php include "includes/footer.php";?>
+                                  }
+                                }
+                                else{
+                                  echo "NO RECORD FOUND";
+                                }
+                              ?>
+                            </tbody>
+                          </table>
+                  </div>
+              </div>
+            </div>
+                <!--post Table ends-->
+
+                
+                
+            </div>
+        </div>
+        <!--Main Body ends-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('#example').DataTable();
+          } );
+        </script>
+        <?php include('includes/footer.php'); ?>
