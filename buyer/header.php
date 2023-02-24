@@ -1,4 +1,4 @@
-<?php
+I'm <?php
 ob_start();
 session_start();
 date_default_timezone_set('UTC');
@@ -48,12 +48,12 @@ body {
 }
 table.floatThead-table {
     border-top: none;
-    border-bottom: none;
+    border-bottom: none;   
     background-color: #fff;
 }
 @media (min-width: 768px) {
   .dropdown:hover .dropdown-menu {
-    display: block;
+    display: t#
   }
 }
 
